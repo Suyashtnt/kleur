@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.204.0/",
+    "culori": "https://esm.sh/culori@3.2.0",
+    "dnt": "https://deno.land/x/dnt@0.38.1/mod.ts"
+  },
+  "importMap": "deno.jsonc",
+  "tasks": {
+    "dev": "deno run --watch mod.ts",
+    "build": "deno run -A build.ts"
+  }
+}
