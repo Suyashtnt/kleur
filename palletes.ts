@@ -1,4 +1,6 @@
-import { type Oklch, oklch } from "culori";
+import { useMode, modeOklch, type Oklch } from "culori/fn";
+
+const oklch = useMode(modeOklch);
 
 /**
  * Loosely based of Material 3 and Catppuccin

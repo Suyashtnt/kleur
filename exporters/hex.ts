@@ -1,4 +1,4 @@
-import { formatCss } from "culori";
+import { formatCss } from "culori/fn";
 import { HumanPalette } from "../palletes.ts";
 
 export const toHex = (pallete: HumanPalette): HumanPalette<string> => ({

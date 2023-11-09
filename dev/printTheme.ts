@@ -1,4 +1,4 @@
-import { toHex } from "../lib.ts";
-import { dark } from "../palletes.ts";
+import { toHex } from "../exporters/mod.ts";
+import { darkTheme } from "../mod.ts";
 
-console.log(JSON.stringify(toHex(dark), null, 2));
+console.log(JSON.stringify(toHex(darkTheme), null, 2));

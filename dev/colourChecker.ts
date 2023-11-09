@@ -1,12 +1,10 @@
-import { formatCss as rgb } from "culori";
+import { formatCss as rgb } from "culori/fn";
 import { dark } from "../palletes.ts";
 
 const colours = Object.entries(dark);
-// @ts-expect-error this works
 const foregroundColours = colours.map((
   [name, colour],
 ) => [name, rgb(colour.foreground ?? colour)]);
-// @ts-expect-error this works
 const backgroundColours = colours.map((
   [name, colour],
 ) => [name, rgb(colour.background ?? colour)]);

@@ -6,13 +6,12 @@ await build({
   entryPoints: ["./mod.ts"],
   outDir: "./npm",
   shims: {
-    // see JS docs for overview and more options
     deno: true,
   },
   package: {
     // package.json properties
     name: "kleurskema",
-    version: "0.2.0",
+    version: "0.3.0",
     description: "Dark, tonal, beautiful.",
     license: "MIT",
     repository: {
@@ -33,3 +32,15 @@ await build({
     Deno.copyFileSync("README.md", "npm/README.md");
   },
 });
+
+// mark package as side-effect free
+const currentPackage = JSON.parse(
+  await Deno.readTextFile("./npm/package.json"),
+);
+
+currentPackage.sideEffects = false;
+
+await Deno.writeTextFile(
+  "./npm/package.json",
+  JSON.stringify(currentPackage, null, 2),
+);

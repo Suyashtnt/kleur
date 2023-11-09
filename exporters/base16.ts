@@ -1,6 +1,6 @@
 import { fromObjectEntries, objectEntries } from "../lib.ts";
 import { Base16, Palette } from "../palletes.ts";
-import { formatCss } from "culori";
+import { formatCss } from "culori/fn";
 
 export const toBase16 = (
   // deno-lint-ignore no-unused-vars
