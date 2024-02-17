@@ -127,6 +127,8 @@
     "https://deno.land/x/wasmbuild@0.15.0/cache.ts": "89eea5f3ce6035a1164b3e655c95f21300498920575ade23161421f5b01967f4",
     "https://deno.land/x/wasmbuild@0.15.0/loader.ts": "d98d195a715f823151cbc8baa3f32127337628379a02d9eb2a3c5902dbccfc02",
     "https://esm.sh/culori@3.2.0": "299e17f5b8d63dc6c305c88da28fb920274e4b6d64ad4c1cbbcb90fdc0f388e3",
-    "https://esm.sh/v133/culori@3.2.0/denonext/culori.mjs": "27bd74ef39aaf368240a0f403e9974acaa7793f0915dc69454df827762ef7f31"
+    "https://esm.sh/v133/culori@3.2.0/denonext/culori.mjs": "27bd74ef39aaf368240a0f403e9974acaa7793f0915dc69454df827762ef7f31",
+    "https://esm.sh/v135/yaml@2.3.4/denonext/yaml.mjs": "e02d2f312d4296e7c6c54a5c9d1c0a82466adb282d8540d4e00cd07574a117fb",
+    "https://esm.sh/yaml@2.3.4": "02c08b605ff88b6d2f14f1b83f8ec9be2e933b64887107e7042491d41a4ed4aa"
   }
 }
