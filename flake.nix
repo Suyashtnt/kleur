@@ -12,14 +12,18 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       base16-lib = pkgs.callPackage base16.lib {};
-      dark-theme = base16-lib.mkSchemeAttrs ./build/dark.json;
+      dark-theme-json = builtins.fromJSON (builtins.readFile ./build/dark.json);
+      dark-theme = base16-lib.mkSchemeAttrs dark-theme-json;
     in {
       devShells.default = pkgs.mkShell {
         packages = [ pkgs.deno pkgs.nil pkgs.alejandra ];
       };
 
       themes = {
-        dark = dark-theme;
+        dark = {
+          base16-nix = dark-theme;
+          json = dark-theme-json;
+        };
       };
     });
 }
