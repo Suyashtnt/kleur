@@ -4,9 +4,11 @@ import { dark } from "../palletes.ts";
 const colours = Object.entries(dark);
 const foregroundColours = colours.map((
   [name, colour],
+  // @ts-expect-error this works due to the ??
 ) => [name, rgb(colour.foreground ?? colour)]);
 const backgroundColours = colours.map((
   [name, colour],
+  // @ts-expect-error this works due to the ??
 ) => [name, rgb(colour.background ?? colour)]);
 
 const colourRows = backgroundColours.map(([name, background]) => {

@@ -1,0 +1,56 @@
+[[language]]
+name = "javascript"
+language-id = "javascript"
+scope = "source.js"
+injection-regex = "^(js|javascript)$"
+file-types = ["js", "jsx", "mjs"]
+shebangs = ["deno", "node"]
+roots = ["deno.json", "package.json", "tsconfig.json"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+grammar = "javascript"
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "jsx"
+language-id = "javascriptreact"
+scope = "source.jsx"
+injection-regex = "jsx"
+file-types = ["jsx"]
+shebangs = ["deno", "node"]
+roots = ["deno.json", "package.json", "tsconfig.json"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+grammar = "javascript"
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "typescript"
+language-id = "typescript"
+scope = "source.ts"
+injection-regex = "^(ts|typescript)$"
+file-types = ["ts"]
+shebangs = ["deno", "node"]
+roots = ["deno.json", "package.json", "tsconfig.json"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+grammar = "typescript"
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "tsx"
+language-id = "typescriptreact"
+scope = "source.tsx"
+injection-regex = "^(tsx)$" # |typescript
+file-types = ["tsx"]
+shebangs = ["deno", "node"]
+roots = ["deno.json", "package.json", "tsconfig.json"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+grammar = "typescript"
+language-servers = ["deno-lsp"]
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp", "--unstable"]
+config = { enable = true, lint = true, unstable = true }

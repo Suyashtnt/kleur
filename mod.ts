@@ -16,6 +16,7 @@ const processPalette = (pallete: Palette): HumanPalette => ({
   green: pallete.base0B,
   teal: pallete.base0C,
   subtle: pallete.base0F,
+  blue: pallete.secondary
 });
 
 export const darkTheme = processPalette(dark);

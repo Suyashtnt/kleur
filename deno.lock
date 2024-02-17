@@ -33,6 +33,11 @@
     "https://esm.sh/v133/@types/culori@latest/index.d.ts": "https://esm.sh/v133/@types/culori@2.0.4/index.d.ts"
   },
   "remote": {
+    "https://cdn.skypack.dev/-/culori@v3.2.0-48Y6ItwAfiUKa7pXPmXj/dist=es2019,mode=imports/optimized/common/definition-536c103d.js": "357fa4e9548041c32db8d699f5e40efb3c34aeb757f1009d554fbedecddecb3b",
+    "https://cdn.skypack.dev/-/culori@v3.2.0-48Y6ItwAfiUKa7pXPmXj/dist=es2019,mode=imports/optimized/common/definition-a7ca5213.js": "0ca583720d7324ece3e8a943ac858ef10bfe05d7a95e6e8a3b051bf542db54e2",
+    "https://cdn.skypack.dev/-/culori@v3.2.0-48Y6ItwAfiUKa7pXPmXj/dist=es2019,mode=imports/optimized/common/wcag-87737862.js": "10528e76bb703cda5e70576292e8b8ff4712fbd630347f72052eb760bcb47f42",
+    "https://cdn.skypack.dev/-/culori@v3.2.0-48Y6ItwAfiUKa7pXPmXj/dist=es2019,mode=imports/optimized/culori/fn.js": "3ece4ae1eb78e7c0dcc8dbfaf024b5a7393a527a4a5f8c7d980ecc8764288f0d",
+    "https://cdn.skypack.dev/culori@3.2.0/fn?dts": "755d859b4c7ba005b175f86600066781f27b2846548d95c756343d7534acb31a",
     "https://deno.land/std@0.140.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.140.0/_util/os.ts": "3b4c6e27febd119d36a416d7a97bd3b0251b77c88942c8f16ee5953ea13e2e49",
     "https://deno.land/std@0.140.0/bytes/bytes_list.ts": "67eb118e0b7891d2f389dad4add35856f4ad5faab46318ff99653456c23b025d",

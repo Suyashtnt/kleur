@@ -10,12 +10,14 @@ export enum PaletteColours {
   BASE = "base",
   /** Primary colour. Used for main elements such as headers and cards. Has 80% opacity with high blur */
   PRIMARY = "primary",
-  /** Secondary colour. Used for smaller elements such as primary buttons. Put on top of primary elements. Has 90%-100% opacity with high blur */
-  SECONDARY = "secondary",
   /** Surface colour. Used for surfaces such as cards and sheets. Has 90% opacity with high blur */
   SURFACE = "surface",
   /** Overlay colour. Used for overlays such as dialogs and menus. Has 90% opacity with high blur */
   OVERLAY = "overlay",
+}
+
+export interface Extras<T> {
+  secondary: T
 }
 
 export interface HumanColours<T> {
@@ -25,6 +27,7 @@ export interface HumanColours<T> {
   green: T;
   teal: T;
   subtle: T;
+  blue: T;
 }
 
 export interface ColourTypes<T> {
@@ -72,48 +75,45 @@ export interface Base16<T> {
 
 export type Palette<T = Oklch> =
   & Record<PaletteColours, ColourTypes<T>>
-  & Base16<T>;
-export type HumanPalette<T = Oklch> =
-  & Record<PaletteColours, ColourTypes<T>>
   & Base16<T>
+  & Extras<T>;
+
+export type HumanPalette<T = Oklch> =
+  Palette<T>
   & HumanColours<T>;
 
 export const dark = {
   base: {
-    // TODO: try 0.03 later
-    background: oklch("oklch(13% 0.04 284)")!,
-    foreground: oklch("oklch(88% 0.04 284)")!,
+    background: oklch("oklch(13% 0.03 284)")!,
+    foreground: oklch("oklch(88% 0.03 284)")!,
   },
   surface: {
-    background: oklch("oklch(15% 0.04 284)")!,
-    foreground: oklch("oklch(90% 0.04 284)")!,
+    background: oklch("oklch(15% 0.05 284)")!,
+    foreground: oklch("oklch(90% 0.05 284)")!,
   },
   overlay: {
-    background: oklch("oklch(20% 0.04 284)")!,
-    foreground: oklch("oklch(94% 0.04 284)")!,
+    background: oklch("oklch(20% 0.05 284)")!,
+    foreground: oklch("oklch(94% 0.07 284)")!,
   },
   primary: {
-    foreground: oklch("oklch(77.6% 0.13 284)")!,
-    background: oklch("oklch(40% 0.13 285)")!,
+    background: oklch("oklch(35% 0.2 284)")!,
+    foreground: oklch("oklch(77% 0.2 284)")!,
   },
-  secondary: {
-    foreground: oklch("oklch(70% 0.13 240)")!,
-    background: oklch("oklch(40% 0.13 240)")!,
-  },
-  base00: oklch("oklch(13% 0.04 284)")!,
-  base01: oklch("oklch(15% 0.04 284)")!,
+  secondary: oklch("oklch(77% 0.2 240)")!,
+  base00: oklch("oklch(13% 0.03 284)")!,
+  base01: oklch("oklch(15% 0.05 284)")!,
   base02: oklch("oklch(20% 0.04 284)")!,
   base03: oklch("oklch(30% 0.04 284)")!,
   base04: oklch("oklch(50% 0.04 284)")!,
   base05: oklch("oklch(90% 0.04 284)")!,
   base06: oklch("oklch(94% 0.04 284)")!,
-  base07: oklch("oklch(77% 0.13 284)")!,
-  base08: oklch("oklch(70% 0.13 300)")!,
-  base09: oklch("oklch(75% 0.2 83)")!,
-  base0A: oklch("oklch(70% 0.2 21)")!,
-  base0B: oklch("oklch(70% 0.13 170)")!,
-  base0C: oklch("oklch(70% 0.2 190)")!,
-  base0D: oklch("oklch(77.6% 0.13 284)")!,
-  base0E: oklch("oklch(70% 0.13 240)")!,
-  base0F: oklch("oklch(40% 0.04 284)")!,
+  base07: oklch("oklch(77% 0.2 284)")!,
+  base08: oklch("oklch(77% 0.2 284)")!,
+  base09: oklch("oklch(77% 0.2 83)")!,
+  base0A: oklch("oklch(62% 0.2 27)")!,
+  base0B: oklch("oklch(77% 0.2 152)")!,
+  base0C: oklch("oklch(77% 0.2 190)")!,
+  base0D: oklch("oklch(77% 0.2 284)")!,
+  base0E: oklch("oklch(77% 0.2 240)")!,
+  base0F: oklch("oklch(30% 0.04 284)")!,
 } as const satisfies Palette;
