@@ -1,0 +1,28 @@
+{
+  "name": "kleur-code",
+  "displayName": "Kleur",
+  "version": "0.2.0",
+  "publisher": "Suyashtnt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Suyashtnt/kleur",
+    "directory": "build/vscode"
+  },
+  "description": "Kleur theme for vscode",
+  "categories": [
+    "Themes"
+  ],
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Kleur",
+        "uiTheme": "vs",
+        "path": "./theme.json"
+      }
+    ]
+  }
+}

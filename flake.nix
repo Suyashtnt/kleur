@@ -19,7 +19,7 @@
       dark-theme = base16-lib.mkSchemeAttrs dark-theme-json;
     in {
       devShells.default = pkgs.mkShell {
-        packages = [ pkgs.deno pkgs.nil pkgs.alejandra ];
+        packages = [ pkgs.deno pkgs.nil pkgs.alejandra pkgs.vsce pkgs.nodejs ];
       };
 
       themes = {
