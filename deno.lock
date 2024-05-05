@@ -2,7 +2,9 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:@vscode/vsce": "npm:@vscode/vsce@2.26.1"
+      "npm:@types/culori": "npm:@types/culori@2.1.0",
+      "npm:@vscode/vsce": "npm:@vscode/vsce@2.26.1",
+      "npm:culori@4": "npm:culori@4.0.1"
     },
     "npm": {
       "@azure/abort-controller@1.1.0": {
@@ -105,6 +107,10 @@
           "jsonwebtoken": "jsonwebtoken@9.0.2",
           "uuid": "uuid@8.3.2"
         }
+      },
+      "@types/culori@2.1.0": {
+        "integrity": "sha512-4uJT5CcC9Mi8mACkWShsPHqILMWL0OqoTsfoLJUGzN1mcipcepmmEdzU8b9L1KwyRNN3rnQO39ylI/2VR850zw==",
+        "dependencies": {}
       },
       "@vscode/vsce@2.26.1": {
         "integrity": "sha512-QOG6Ht7V93nhwcBxPWcG33UK0qDGEoJdg0xtVeaTN27W6PGdMJUJGTPhB/sNHUIFKwvwzv/zMAHvDgMNXbcwlA==",
@@ -289,6 +295,10 @@
       },
       "css-what@6.1.0": {
         "integrity": "sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==",
+        "dependencies": {}
+      },
+      "culori@4.0.1": {
+        "integrity": "sha512-LSnjA6HuIUOlkfKVbzi2OlToZE8OjFi667JWN9qNymXVXzGDmvuP60SSgC+e92sd7B7158f7Fy3Mb6rXS5EDPw==",
         "dependencies": {}
       },
       "debug@4.3.4": {
@@ -1110,6 +1120,13 @@
     "https://esm.sh/culori@3.2.0": "299e17f5b8d63dc6c305c88da28fb920274e4b6d64ad4c1cbbcb90fdc0f388e3",
     "https://esm.sh/v133/culori@3.2.0/denonext/culori.mjs": "27bd74ef39aaf368240a0f403e9974acaa7793f0915dc69454df827762ef7f31",
     "https://esm.sh/v135/yaml@2.3.4/denonext/yaml.mjs": "e02d2f312d4296e7c6c54a5c9d1c0a82466adb282d8540d4e00cd07574a117fb",
-    "https://esm.sh/yaml@2.3.4": "02c08b605ff88b6d2f14f1b83f8ec9be2e933b64887107e7042491d41a4ed4aa"
+    "https://esm.sh/v135/yaml@2.4.2/denonext/yaml.mjs": "4bb0c7bab1cfebb5557da3dba3595c5cac62cc517f7ffe3cdb29ebcacb125643",
+    "https://esm.sh/yaml@2.3.4": "02c08b605ff88b6d2f14f1b83f8ec9be2e933b64887107e7042491d41a4ed4aa",
+    "https://esm.sh/yaml@2.4.2": "fc771218df26a53990a4b4cac1783bcf7012620099c82f60b591fd9cf394ad8d"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:culori@4"
+    ]
   }
 }

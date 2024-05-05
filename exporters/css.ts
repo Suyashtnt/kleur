@@ -1,3 +1,4 @@
+// @deno-types="npm:@types/culori"
 import { formatCss } from "culori/fn";
 import { HumanPalette } from "../palletes.ts";
 

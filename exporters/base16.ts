@@ -1,5 +1,6 @@
 import { fromObjectEntries, objectEntries } from "../lib.ts";
 import { Base16, Palette } from "../palletes.ts";
+// @deno-types="npm:@types/culori"
 import { formatCss } from "culori/fn";
 
 export const toBase16 = (

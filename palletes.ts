@@ -1,3 +1,4 @@
+// @deno-types="npm:@types/culori"
 import { useMode, modeOklch, type Oklch } from "culori/fn";
 
 const oklch = useMode(modeOklch);
