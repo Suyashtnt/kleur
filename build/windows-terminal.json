@@ -1,0 +1,23 @@
+{
+  "name": "Kleur",
+  "foreground": "#dadbf8",
+  "background": "#060613",
+  "cursorColor": "#dadbf8",
+  "selectionBackground": "#141327",
+  "black": "#060613",
+  "red": "#e6443d",
+  "green": "#11d770",
+  "yellow": "#f1a400",
+  "blue": "#00c0ff",
+  "purple": "#a89dff",
+  "cyan": "#00dad0",
+  "white": "#dadbf8",
+  "brightBlack": "#2b2b41",
+  "brightRed": "#e6443d",
+  "brightGreen": "#11d770",
+  "brightYellow": "#f1a400",
+  "brightBlue": "#00c0ff",
+  "brightPurple": "#a89dff",
+  "brightCyan": "#00dad0",
+  "brightWhite": "#a89dff"
+}
