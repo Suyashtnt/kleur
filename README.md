@@ -20,6 +20,7 @@ For now, here are some of them
 - [Kleur Monkeytype](https://monkeytype.com?customTheme=eyJjIjpbIiMwNjA2MTMiLCIjYTg5ZGZmIiwiIzM5MDc5YiIsIiM0NTQ1NWQiLCIjMDkwODFiIiwiI2Q0ZDVlYiIsIiNlNjQ0M2QiLCIjZWJhMGFjIiwiI2U2NDQzZCIsIiNlYmEwYWMiXSwiaSI6IiIsInMiOiJjb3ZlciIsImYiOlswLDEsMSwxLDFdfQ==)
 - [JSON](https://github.com/Suyashtnt/kleur/blob/main/build/dark.json)
 - [Base16](https://github.com/Suyashtnt/kleur/blob/main/build/dark-base16.yaml)
+- [Windows Terminal](https://github.com/Suyashtnt/kleur/blob/main/build/windows-terminal.json)
 
 ## Showcase
 - [My website](https://wobbl.in)

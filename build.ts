@@ -1,6 +1,11 @@
-import { darkTheme, toHex, toVscodeTheme } from "./mod.ts"
-import * as YAML from "yaml"
- 
+import {
+  darkTheme,
+  toHex,
+  toVscodeTheme,
+  toWindowsTerminalTheme,
+} from "./mod.ts";
+import * as YAML from "yaml";
+
 const dark = toHex(darkTheme);
 
 // export dark.json
@@ -11,6 +16,10 @@ await Deno.writeTextFile("build/dark.json", darkJson);
 const darkYaml = YAML.stringify(dark);
 await Deno.writeTextFile("build/dark-base16.yaml", darkYaml);
 
+// export windows-terminal.json
+const windowsTerminal = await toWindowsTerminalTheme(darkTheme);
+await Deno.writeTextFile("build/windows-terminal.json", windowsTerminal);
+
 // export vscode
 const vscode = await toVscodeTheme(darkTheme);
 await Deno.writeTextFile("build/vscode/theme.json", vscode);
@@ -18,9 +27,8 @@ await Deno.writeTextFile("build/vscode/theme.json", vscode);
 await Deno.copyFile("LICENSE", "build/vscode/LICENSE");
 // and package
 const packageOutput = await new Deno.Command("vsce", {
-    args: ["package"],
-    cwd: "build/vscode"
+  args: ["package"],
+  cwd: "build/vscode",
 }).output();
 console.log(new TextDecoder().decode(packageOutput.stdout));
 console.error(new TextDecoder().decode(packageOutput.stderr));
-

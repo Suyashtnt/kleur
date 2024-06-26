@@ -1,0 +1,10 @@
+{
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["deno", "!typescript-language-server", "!eslint"]
+    },
+    "TSX": {
+      "language_servers": ["deno", "!typescript-language-server", "!eslint"]
+    }
+  }
+}
