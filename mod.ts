@@ -1,24 +1,14 @@
-import { HumanPalette, Palette } from "./palletes.ts";
-import { dark } from "./palletes.ts";
+import * as palletes from "./palletes.ts";
+import { convertPalleteToColors, colorsToTheme } from "./generate.ts";
 
-/**
- * Processes a palette into a more
- * usable format. Most things are
- * renamed to be more descriptive
- * and will have usage guides
- * @param pallete the palette to process
- */
-const processPalette = (pallete: Palette): HumanPalette => ({
-  ...pallete,
-  mauve: pallete.base08,
-  orange: pallete.base09,
-  red: pallete.base0A,
-  green: pallete.base0B,
-  teal: pallete.base0C,
-  subtle: pallete.base0F,
-  blue: pallete.secondary
+const darkColors = convertPalleteToColors(palletes.dark, {
+  primary: "purple",
+  secondary: "blue",
+});
+export const dark = colorsToTheme(darkColors, {
+  lightness: 4,
+  contrast: 1,
+  saturation: 100,
 });
 
-export const darkTheme = processPalette(dark);
-
-export * from "./exporters/mod.ts"
+export * from "./exporters/mod.ts";
