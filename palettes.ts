@@ -1,9 +1,10 @@
 // @deno-types="npm:@types/chroma-js@2"
 import Chroma, { type Color } from "chroma";
 const { oklch } = Chroma;
+import type { Theme as LeonardoTheme } from "@adobe/leonardo-contrast-colors";
 
 export type KeyColors<T> = {
-  /** Base background colour */
+  /** Base background color */
   base: T;
   red: T;
   orange: T;
@@ -18,11 +19,18 @@ export type CustomColors<T> = {
   secondary: T;
 };
 
-export type Colors<T> = KeyColors<T> & CustomColors<T> & {
+export type BackgroundColors<T> = {
   background: T;
+  surface: T;
+  overlay: T;
 };
 
-/** base16 colours. Used for syntax highlighting and for porting to other apps */
+export type Theme = {
+  theme: LeonardoTheme;
+  backgrounds: BackgroundColors<Chroma.Color>;
+};
+
+/** base16 colors. Used for syntax highlighting and for porting to other apps */
 export type Base16<T> = {
   /** Default background */
   base00: T;
@@ -69,7 +77,7 @@ export const dark = {
 } satisfies KeyColors<Color>;
 
 export const light = {
-  base: oklch(0.9, 0.03, 284),
+  base: oklch(0.8, 0.03, 284),
   blue: oklch(0.77, 0.2, 240),
   green: oklch(0.77, 0.2, 152),
   orange: oklch(0.77, 0.2, 83),

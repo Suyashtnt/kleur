@@ -1,7 +1,7 @@
 import { render } from "mustache";
 import { toBase16 } from "./base16.ts";
-import { Theme } from "@adobe/leonardo-contrast-colors";
 import { fromObjectEntries, objectEntries } from "../lib.ts";
+import { Theme } from "../palettes.ts";
 
 export const toWindowsTerminalTheme = async (theme: Theme, name: string) => {
   const hex = toBase16(theme);

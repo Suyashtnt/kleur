@@ -1,5 +1,4 @@
 import { parseArgs } from "@std/cli/parse-args";
-import { Theme } from "@adobe/leonardo-contrast-colors";
 import {
   dark,
   light,
@@ -11,6 +10,8 @@ import {
 } from "./mod.ts";
 import * as YAML from "yaml";
 import { colorListToObj } from "./generate.ts";
+import { Theme } from "./palettes.ts";
+import { objectEntries } from "./lib.ts";
 
 const { "vsce-path": vscePath } = parseArgs(
   Deno.args,
@@ -34,18 +35,24 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
   const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
   const name = `Kleur ${capitalizedType}`;
 
-  const [background, ...colorList] = theme.contrastColors;
+  const [_, ...colorList] = theme.theme.contrastColors;
+  const backgrounds = objectEntries(theme.backgrounds)
+    .map(([name, color]) => [name, color.lch()] as const)
+    .reduce((acc, [name, [l, c, h]]) => {
+      acc[name] = `lch(${l}, ${c}, ${h})`;
+      return acc;
+    }, {} as Record<string, string>);
 
   const lch = {
-    background,
+    ...backgrounds,
     ...colorListToObj(colorList),
   };
-  const lchJson = JSON.stringify(lch);
+  const lchJson = JSON.stringify(lch, null, 2);
   await Deno.writeTextFile(`build/${type}/kleur-lch.json`, lchJson);
 
   const hex = toHex(theme);
   const hexJson = JSON.stringify(hex, null, 2);
-  await Deno.writeTextFile(`build/${type}/kleur-.json`, hexJson);
+  await Deno.writeTextFile(`build/${type}/kleur-hex.json`, hexJson);
 
   const base16 = toBase16(theme);
   const base16Yaml = YAML.stringify(base16);

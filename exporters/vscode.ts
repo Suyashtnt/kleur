@@ -1,16 +1,16 @@
 import { render } from "mustache";
-import { Theme } from "@adobe/leonardo-contrast-colors";
 import { fromObjectEntries, objectEntries } from "../lib.ts";
 import { toBase16 } from "./base16.ts";
 import { toHex } from "./hex.ts";
+import { Theme } from "../palettes.ts";
 
 export const toVscodeTheme = async (theme: Theme, name: string) => {
   const template = await Deno.readTextFile("templates/vscode.mustache");
 
-  const { background, ...hexTheme } = toHex(theme);
+  const hexTheme = toHex(theme);
   const hex = objectEntries(hexTheme)
     .reduce((acc, [key, value]) => {
-      acc[key] = value[600];
+      acc[key] = value[600] ?? value;
       return acc;
     }, {} as Record<string, string>);
 
@@ -19,7 +19,6 @@ export const toVscodeTheme = async (theme: Theme, name: string) => {
   const colorObject = {
     ...base16,
     ...hex,
-    background: background.background,
   };
 
   const colors: Record<

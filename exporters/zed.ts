@@ -1,6 +1,6 @@
 import { render } from "mustache";
-import { Theme } from "@adobe/leonardo-contrast-colors";
 import { toHex } from "./hex.ts";
+import { Theme } from "../palettes.ts";
 
 export const toZedTheme = async (theme: Theme) => {
   const template = await Deno.readTextFile("templates/zed-theme.mustache");

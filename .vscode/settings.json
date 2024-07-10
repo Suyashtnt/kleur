@@ -2,5 +2,8 @@
   "deno.enable": true,
   "deno.lint": true,
   "typescript.tsserver.experimental.enableProjectDiagnostics": false,
-  "deno.unstable": true
+  "deno.unstable": true,
+  "cSpell.words": [
+    "OKLCH"
+  ]
 }

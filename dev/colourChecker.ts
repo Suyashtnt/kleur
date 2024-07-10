@@ -1,20 +1,20 @@
-import { dark } from "../palletes.ts";
+import { dark } from "../palettes.ts";
 
-const colours = Object.entries(dark);
-const foregroundColours = colours.map((
-  [name, colour],
+const colors = Object.entries(dark);
+const foregroundcolors = colors.map((
+  [name, color],
   // @ts-expect-error well yes typescript this could be null thats why the ?? is there
-) => [name, rgb(colour.foreground ?? colour)]);
+) => [name, rgb(color.foreground ?? color)]);
 
-const backgroundColours = colours.map((
-  [name, colour],
+const backgroundcolors = colors.map((
+  [name, color],
   // @ts-expect-error well yes typescript this could be null thats why the ?? is there
-) => [name, rgb(colour.background ?? colour)]);
+) => [name, rgb(color.background ?? color)]);
 
-const colourRows = backgroundColours.map(([name, background]) => {
+const colorRows = backgroundcolors.map(([name, background]) => {
   return [
     name,
-    foregroundColours.map(([name, foreground]) => {
+    foregroundcolors.map(([name, foreground]) => {
       return {
         name,
         background,
@@ -25,19 +25,19 @@ const colourRows = backgroundColours.map(([name, background]) => {
 });
 
 // display the columns
-for (const [name, colours] of colourRows) {
-  const thisRowsColour = colours.find(({ name }) => name === name)!;
+for (const [name, colors] of colorRows) {
+  const thisRowscolor = colors.find(({ name }) => name === name)!;
   console.log(
     `%c${name}`,
-    `color: ${thisRowsColour.foreground}; background-color: ${thisRowsColour.background};`,
+    `color: ${thisRowscolor.foreground}; background-color: ${thisRowscolor.background};`,
   );
 
-  const colourRow = colours.reduce((acc, { name, background, foreground }) => {
+  const colorRow = colors.reduce((acc, { name, background, foreground }) => {
     acc.string += `%c${name} `;
     acc.style.push(`color: ${foreground}; background-color: ${background};`);
     return acc;
   }, { string: "", style: [] as string[] });
 
-  console.log(colourRow.string, ...colourRow.style);
+  console.log(colorRow.string, ...colorRow.style);
   console.log();
 }

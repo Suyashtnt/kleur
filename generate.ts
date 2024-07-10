@@ -2,17 +2,22 @@ import {
   BackgroundColor,
   Color,
   ContrastColor,
-  ContrastColorValue,
   CssColor,
-  Theme,
+  Theme as LeonardoTheme,
 } from "@adobe/leonardo-contrast-colors";
-import { CustomColors, KeyColors } from "./palletes.ts";
+import {
+  BackgroundColors,
+  CustomColors,
+  KeyColors,
+  Theme,
+} from "./palettes.ts";
 // @deno-types="npm:@types/chroma-js@2"
 import Chroma from "chroma";
 import { objectEntries } from "./lib.ts";
+import chroma from "chroma";
 
-export const convertPalleteToColors = (
-  pallete: KeyColors<Chroma.Color>,
+export const convertPaletteToColors = (
+  palette: KeyColors<Chroma.Color>,
   extraKeys: Record<
     keyof CustomColors<Chroma.Color>,
     keyof KeyColors<Chroma.Color>
@@ -42,15 +47,15 @@ export const convertPalleteToColors = (
     });
   };
 
-  const colors = objectEntries(pallete).map(([name, oklch]) =>
+  const colors = objectEntries(palette).map(([name, oklch]) =>
     asColor(name, oklch)
   );
 
   for (const [extraKey, value] of objectEntries(extraKeys)) {
-    colors.push(asColor(extraKey, pallete[value]));
+    colors.push(asColor(extraKey, palette[value]));
   }
 
-  const backgroundColor = asBackground("base", pallete.base);
+  const backgroundColor = asBackground("base", palette.base);
 
   return {
     colors,
@@ -68,8 +73,11 @@ export const colorsToTheme = (
     contrast,
     saturation,
   }: { lightness: number; contrast: number; saturation: number },
+  generateBackground: (
+    background: Chroma.Color,
+  ) => BackgroundColors<Chroma.Color>,
 ): Theme => {
-  return new Theme({
+  const theme = new LeonardoTheme({
     colors,
     backgroundColor,
     lightness,
@@ -77,6 +85,23 @@ export const colorsToTheme = (
     saturation,
     output: "LCH",
   });
+
+  const { background: bgStr } = theme.contrastColorPairs;
+
+  const [l, c, h] = bgStr
+    .replace("lch(", "")
+    .replace(")", "")
+    .split(",")
+    .map((val) => parseFloat(val));
+
+  const background = chroma.lch(l, c, h);
+
+  const backgrounds = generateBackground(background);
+
+  return {
+    theme,
+    backgrounds: backgrounds,
+  };
 };
 
 type Shade = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
