@@ -1,13 +1,6 @@
-// @deno-types="npm:@types/culori"
-import { useMode, modeOklch, type Oklch } from "culori/fn";
-import { fromObjectEntries, objectEntries } from "./lib.ts";
-
-const oklch = useMode(modeOklch);
-
-const oklchify = (obj: KeyColors<string>): KeyColors<Oklch> =>
-  fromObjectEntries(
-    objectEntries(obj).map(([key, value]) => [key, oklch(value) as Oklch]),
-  );
+// @deno-types="npm:@types/chroma-js@2"
+import Chroma, { type Color } from "chroma";
+const { oklch } = Chroma;
 
 export type KeyColors<T> = {
   /** Base background colour */
@@ -18,6 +11,11 @@ export type KeyColors<T> = {
   blue: T;
   teal: T;
   purple: T;
+};
+
+export type CustomColors<T> = {
+  primary: T;
+  secondary: T;
 };
 
 /** base16 colours. Used for syntax highlighting and for porting to other apps */
@@ -56,12 +54,22 @@ export type Base16<T> = {
   base0F: T;
 };
 
-export const dark = oklchify({
-  base: "oklch(13% 0.03 284)",
-  blue: "oklch(77% 0.2 240)",
-  green: "oklch(0.77 0.2 152)",
-  orange: "oklch(0.77 0.2 83)",
-  purple: "oklch(0.77 0.2 284)",
-  red: "oklch(0.62 0.2 27)",
-  teal: "oklch(0.77 0.2 190)",
-}) satisfies KeyColors<Oklch>;
+export const dark = {
+  base: oklch(0.13, 0.03, 284),
+  blue: oklch(0.77, 0.2, 240),
+  green: oklch(0.77, 0.2, 152),
+  orange: oklch(0.77, 0.2, 83),
+  purple: oklch(0.77, 0.2, 284),
+  red: oklch(0.62, 0.2, 27),
+  teal: oklch(0.77, 0.2, 190),
+} satisfies KeyColors<Color>;
+
+export const light = {
+  base: oklch(0.9, 0.03, 284),
+  blue: oklch(0.77, 0.2, 240),
+  green: oklch(0.77, 0.2, 152),
+  orange: oklch(0.77, 0.2, 83),
+  purple: oklch(0.77, 0.2, 284),
+  red: oklch(0.62, 0.2, 27),
+  teal: oklch(0.77, 0.2, 190),
+} satisfies KeyColors<Color>;

@@ -1,10 +1,8 @@
-// @deno-types="npm:@types/culori"
-import { formatCss as rgb } from "culori/fn";
 import { dark } from "../palletes.ts";
 
 const colours = Object.entries(dark);
 const foregroundColours = colours.map((
-  [name, colour]
+  [name, colour],
   // @ts-expect-error well yes typescript this could be null thats why the ?? is there
 ) => [name, rgb(colour.foreground ?? colour)]);
 

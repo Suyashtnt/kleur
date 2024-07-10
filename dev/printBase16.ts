@@ -1,4 +1,4 @@
-import { dark } from "../palletes.ts";
+import { dark } from "../mod.ts";
 import { toBase16 } from "../exporters/base16.ts";
 
 const theme = toBase16(dark);

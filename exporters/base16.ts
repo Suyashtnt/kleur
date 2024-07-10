@@ -1,12 +1,12 @@
+import { Theme } from "@adobe/leonardo-contrast-colors";
 import { fromObjectEntries, objectEntries } from "../lib.ts";
-import { Base16, Palette } from "../palletes.ts";
-// @deno-types="npm:@types/culori"
-import { formatCss } from "culori/fn";
+import { Base16 } from "../palletes.ts";
 
 export const toBase16 = (
-  // deno-lint-ignore no-unused-vars
-  { base, overlay, primary, secondary, surface, ...pallete }: Palette,
-): Base16<string> =>
-  fromObjectEntries(
-    objectEntries(pallete).map(([name, colour]) => [name, formatCss(colour)]),
-  );
+  theme: Theme,
+): Base16<string> => {
+  const asHexTheme = new Theme({
+    ...theme,
+    output: "HEX",
+  });
+};
