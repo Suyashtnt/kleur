@@ -1,0 +1,23 @@
+{
+  "name": "Kleur Light",
+  "foreground": "#676774",
+  "background": "#dfe0f6",
+  "cursorColor": "#676774",
+  "selectionBackground": "#9c9dae",
+  "black": "#dfe0f6",
+  "red": "#",
+  "green": "#",
+  "yellow": "#",
+  "blue": "#",
+  "purple": "#",
+  "cyan": "#",
+  "white": "#676774",
+  "brightBlack": "#808190",
+  "brightRed": "#",
+  "brightGreen": "#",
+  "brightYellow": "#",
+  "brightBlue": "#",
+  "brightPurple": "#",
+  "brightCyan": "#",
+  "brightWhite": "#3c3c45"
+}

@@ -1,21 +1,25 @@
 import { render } from "mustache";
-import { HumanPalette } from "../palletes.ts";
-import { toHex } from "./hex.ts";
+import { toBase16 } from "./base16.ts";
+import { Theme } from "@adobe/leonardo-contrast-colors";
+import { fromObjectEntries, objectEntries } from "../lib.ts";
 
-export const toWindowsTerminalTheme = async (pallete: HumanPalette) => {
-  const hex = toHex(pallete);
+export const toWindowsTerminalTheme = async (theme: Theme, name: string) => {
+  const hex = toBase16(theme);
   const template = await Deno.readTextFile(
     "templates/windowsTerminal.mustache",
   );
-  const theme = Object.fromEntries(
-    Object.entries(hex).map(([key, value]) => [
-      key + "-hex",
+  const colors: Record<
+    `${string}-hex`,
+    string
+  > = fromObjectEntries(
+    objectEntries(hex).map(([key, value]) => [
+      key + "-hex" as `${string}-hex`,
       value.replace?.("#", ""),
     ]),
   );
 
   return render(template, {
-    "scheme-name": "Kleur",
-    ...theme,
+    "scheme-name": name,
+    ...colors,
   });
 };

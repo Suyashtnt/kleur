@@ -2,8 +2,15 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@std/cli@^0.224.7": "jsr:@std/cli@0.224.7",
       "npm:@adobe/leonardo-contrast-colors": "npm:@adobe/leonardo-contrast-colors@1.0.0",
+      "npm:@types/chroma-js@2": "npm:@types/chroma-js@2.4.4",
       "npm:chroma-js@2": "npm:chroma-js@2.4.2"
+    },
+    "jsr": {
+      "@std/cli@0.224.7": {
+        "integrity": "654ca6477518e5e3a0d3fabafb2789e92b8c0febf1a1d24ba4b567aba94b5977"
+      }
     },
     "npm": {
       "@adobe/leonardo-contrast-colors@1.0.0": {
@@ -15,6 +22,10 @@
           "ciecam02": "ciecam02@0.4.6",
           "hsluv": "hsluv@0.1.0"
         }
+      },
+      "@types/chroma-js@2.4.4": {
+        "integrity": "sha512-/DTccpHTaKomqussrn+ciEvfW4k6NAHzNzs/sts1TCqg333qNxOhy8TNIoQCmbGG3Tl8KdEhkGAssb1n3mTXiQ==",
+        "dependencies": {}
       },
       "apca-w3@0.1.9": {
         "integrity": "sha512-Zrf6AeBeQjNe/fxK7U1jCo5zfdjDl6T4/kdw5Xlky3G7u+EJTZkyItjMYQGtwf9pkftsINxcYyOpuLkzKf1ITQ==",
@@ -55,10 +66,13 @@
   },
   "remote": {
     "https://deno.land/x/mustache@v0.3.0/mod.ts": "002ffc0db1c5a433abe013fb204478df1e5f7a32246794a59203a17b1b8953ac",
-    "https://deno.land/x/mustache@v0.3.0/mustache.mjs": "e4d66e7fd4423ecc65b0ed2648adab3922d8dfdd264d242ce89c67cf9d104041"
+    "https://deno.land/x/mustache@v0.3.0/mustache.mjs": "e4d66e7fd4423ecc65b0ed2648adab3922d8dfdd264d242ce89c67cf9d104041",
+    "https://esm.sh/v135/yaml@2.4.2/denonext/yaml.mjs": "4bb0c7bab1cfebb5557da3dba3595c5cac62cc517f7ffe3cdb29ebcacb125643",
+    "https://esm.sh/yaml@2.4.2": "fc771218df26a53990a4b4cac1783bcf7012620099c82f60b591fd9cf394ad8d"
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/cli@^0.224.7",
       "npm:@adobe/leonardo-contrast-colors",
       "npm:chroma-js@2"
     ]

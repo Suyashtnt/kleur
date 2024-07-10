@@ -1,4 +1,11 @@
-import { BackgroundColor, Color, Theme } from "@adobe/leonardo-contrast-colors";
+import {
+  BackgroundColor,
+  Color,
+  ContrastColor,
+  ContrastColorValue,
+  CssColor,
+  Theme,
+} from "@adobe/leonardo-contrast-colors";
 import { CustomColors, KeyColors } from "./palletes.ts";
 // @deno-types="npm:@types/chroma-js@2"
 import Chroma from "chroma";
@@ -16,7 +23,7 @@ export const convertPalleteToColors = (
       name,
       // @ts-expect-error this works in chroma-js
       colorKeys: [color.hex()],
-      ratios: [1.79, 2.61, 3.81, 5.56, 7.89, 10.8],
+      ratios: [1.45, 2.06, 2.95, 4.27, 6.05, 8.37, 11.34, 14.89],
       colorspace: "OKLCH",
       smooth: true,
       output: "OKLCH",
@@ -28,7 +35,7 @@ export const convertPalleteToColors = (
       name,
       // @ts-expect-error this works in chroma-js
       colorKeys: [color.hex()],
-      ratios: [1.79, 2.61, 3.81, 5.56, 7.89, 10.8],
+      ratios: [1.45, 2.06, 2.95, 4.27, 6.05, 8.37, 11.34, 14.89],
       colorspace: "OKLCH",
       smooth: true,
       output: "OKLCH",
@@ -71,3 +78,23 @@ export const colorsToTheme = (
     output: "LCH",
   });
 };
+
+type Shade = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
+type ColorShades = Record<Shade, CssColor>;
+type ColorObject = Record<
+  | keyof CustomColors<Chroma.Color>
+  | keyof KeyColors<Chroma.Color>,
+  ColorShades
+>;
+
+export const colorListToObj = (colors: ContrastColor[]): ColorObject =>
+  colors.reduce((acc, { name, values }) => {
+    acc[name as keyof ColorObject] = values.reduce(
+      (acc, { name: shadeName, value }) => {
+        acc[Number(shadeName.replace(name, "")) as Shade] = value;
+        return acc;
+      },
+      {} as ColorShades,
+    );
+    return acc;
+  }, {} as ColorObject);

@@ -18,6 +18,10 @@ export type CustomColors<T> = {
   secondary: T;
 };
 
+export type Colors<T> = KeyColors<T> & CustomColors<T> & {
+  background: T;
+};
+
 /** base16 colours. Used for syntax highlighting and for porting to other apps */
 export type Base16<T> = {
   /** Default background */
