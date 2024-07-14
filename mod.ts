@@ -32,19 +32,19 @@ const lightColors = convertPaletteToColors(palettes.light, {
 export const light = colorsToTheme(
   {
     name: "Light",
-    baseShade: 400,
-    brightShade: 500,
+    baseShade: 300,
+    brightShade: 400,
   },
   lightColors,
   {
-    lightness: 80,
-    contrast: 1,
+    lightness: 95,
+    contrast: 2,
     saturation: 100,
   },
   (background) => ({
     background,
-    surface: background.darken(0.2),
-    overlay: background.darken(0.5),
+    surface: background.darken(0.05),
+    overlay: background.darken(0.1),
   }),
 );
 

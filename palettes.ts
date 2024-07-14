@@ -30,8 +30,8 @@ export type Theme = {
   name: string;
   theme: LeonardoTheme;
   backgrounds: BackgroundColors<Chroma.Color>;
-  baseShade: Shade,
-  brightShade: Shade,
+  baseShade: Shade;
+  brightShade: Shade;
 };
 
 /** base16 colors. Used for syntax highlighting and for porting to other apps */
@@ -69,21 +69,21 @@ export type Base24<T> = {
   /** Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>. Dark brown/red */
   base0F: T;
   /** Darker background. Darker black */
-  base10: T
+  base10: T;
   /** Darkest background. Darkest black */
-  base11: T
+  base11: T;
   /** Bright red */
-  base12: T
+  base12: T;
   /** Bright yellow */
-  base13: T
+  base13: T;
   /** Bright green */
-  base14: T
+  base14: T;
   /** Bright cyan */
-  base15: T
+  base15: T;
   /** Bright blue */
-  base16: T
+  base16: T;
   /** Bright purple */
-  base17: T
+  base17: T;
 };
 
 export const dark = {
@@ -97,7 +97,7 @@ export const dark = {
 } satisfies KeyColors<Color>;
 
 export const light = {
-  base: oklch(0.8, 0.03, 284),
+  base: oklch(0.77, 0.03, 284),
   blue: oklch(0.77, 0.2, 240),
   green: oklch(0.77, 0.2, 152),
   orange: oklch(0.77, 0.2, 83),
