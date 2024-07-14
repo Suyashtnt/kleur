@@ -6,7 +6,11 @@ import { BackgroundColors, Theme } from "../palettes.ts";
 import { toBase24 } from "./base24.ts";
 import { convertTheme, themeToColors } from "./outputConversion.ts";
 
-export const toMustache = (theme: Theme, template: string) => {
+export const toMustache = (
+  theme: Theme,
+  template: string,
+  extra: Record<PropertyKey, string> = {},
+) => {
   const hexTheme = themeToColors(
     convertTheme(theme, "HEX"),
     (color) => color.hex(),
@@ -35,8 +39,10 @@ export const toMustache = (theme: Theme, template: string) => {
 
   const mustaceTheme = {
     "scheme-name": `Kleur ${theme.name}`,
+    polarity: theme.polarity,
     ...hex,
     ...lch,
+    ...extra,
   };
 
   return render(template, mustaceTheme);

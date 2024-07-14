@@ -9,6 +9,7 @@ import {
   BackgroundColors,
   CustomColors,
   KeyColors,
+  Polarity,
   Theme,
 } from "./palettes.ts";
 // @deno-types="npm:@types/chroma-js@2"
@@ -68,7 +69,8 @@ export const colorsToTheme = (
     name,
     baseShade,
     brightShade,
-  }: { name: string; baseShade: Shade; brightShade: Shade },
+    polarity,
+  }: { name: string; baseShade: Shade; brightShade: Shade; polarity: Polarity },
   {
     colors,
     backgroundColor,
@@ -106,6 +108,7 @@ export const colorsToTheme = (
   return {
     name,
     theme,
+    polarity,
     backgrounds: backgrounds,
     baseShade,
     brightShade,

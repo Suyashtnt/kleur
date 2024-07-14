@@ -10,6 +10,7 @@ export const dark = colorsToTheme(
     name: "Dark",
     baseShade: 500,
     brightShade: 700,
+    polarity: "dark",
   },
   darkColors,
   {
@@ -34,6 +35,7 @@ export const light = colorsToTheme(
     name: "Light",
     baseShade: 300,
     brightShade: 400,
+    polarity: "light",
   },
   lightColors,
   {

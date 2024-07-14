@@ -12,6 +12,7 @@ import * as YAML from "yaml";
 import { colorListToObj } from "./generate.ts";
 import { Theme } from "./palettes.ts";
 import { objectEntries } from "./lib.ts";
+import { toZedThemes } from "./exporters/zed.ts";
 
 const { "vsce-path": vscePath } = parseArgs(
   Deno.args,
@@ -91,9 +92,16 @@ const buildVscode = async () => {
 };
 
 // TODO: zed
+const buildZed = async () => {
+  console.log("Building zed themes");
+  const theme = await toZedThemes([dark, light]);
+  await Deno.writeTextFile(`build/zed.json`, theme);
+  console.log("Built zed themes");
+};
 
 await Promise.all([
   buildSingleThemes(dark, "Dark"),
   buildSingleThemes(light, "Light"),
   buildVscode(),
+  buildZed(),
 ]);

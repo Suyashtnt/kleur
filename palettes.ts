@@ -26,9 +26,12 @@ export type BackgroundColors<T> = {
   overlay: T;
 };
 
+export type Polarity = "dark" | "light";
+
 export type Theme = {
   name: string;
   theme: LeonardoTheme;
+  polarity: Polarity;
   backgrounds: BackgroundColors<Chroma.Color>;
   baseShade: Shade;
   brightShade: Shade;
