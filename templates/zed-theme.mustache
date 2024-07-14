@@ -25,13 +25,13 @@
     "title_bar.background": "#{{surface-hex}}",
     "toolbar.background": "#{{surface-hex}}",
     "tab_bar.background": "#{{surface-hex}}",
-    "tab.inactive_background": "#{{base02-hex}}",
-    "tab.active_background": "#{{base03-hex}}",
+    "tab.inactive_background": "#{{background-hex}}",
+    "tab.active_background": "#{{overlay-hex}}",
     "panel.background": "#{{surface-hex}}",
-    "scrollbar.thumb.background": "#{{surface-hex}}33",
-    "scrollbar.thumb.hover_background": "#{{surface-hex}}77",
-    "scrollbar.thumb.border": "#{{surface-hex}}33",
-    "scrollbar.track.background": "#{{background-hex}}",
+    "scrollbar.thumb.background": "#{{overlay-hex}}33",
+    "scrollbar.thumb.hover_background": "#{{overlay-hex}}77",
+    "scrollbar.thumb.border": "#{{overlay-hex}}33",
+    "scrollbar.track.background": "#{{surface-hex}}",
     "scrollbar.track.border": "#00000000",
     "editor.foreground": "#{{base07-hex}}",
     "editor.background": "#{{background-hex}}",
@@ -136,22 +136,22 @@
         "font_weight": 700
       },
       "function.declaration.async": {
-        "foreground": "#{{orange-hex}}",
+        "color": "#{{orange-hex}}",
         "font_style": "normal",
         "font_weight": 700
       },
       "method.declaration": {
-        "foreground": "#{{blue-hex}}",
+        "color": "#{{blue-hex}}",
         "font_style": "normal",
         "font_weight": 700
       },
       "method.declaration.async": {
-        "foreground": "#{{orange-hex}}",
+        "color": "#{{orange-hex}}",
         "font_style": "normal",
         "font_weight": 700
       },
       "method": {
-        "foreground": "#{{blue-hex}}",
+        "color": "#{{blue-hex}}",
         "font_style": "italic"
       },
       "macro": {
@@ -161,12 +161,12 @@
         "color": "#{{base06-hex}}"
       },
       "comment": {
-        "foreground": "#{{base03-hex}}",
+        "color": "#{{base03-hex}}",
         "font_style": "italic"
       },
       "string": { "color": "#{{green-hex}}" },
       "keyword": {
-        "foreground": "#{{blue-hex}}",
+        "color": "#{{purple-hex}}",
         "font_style": "italic"
       },
       "selfKeyword": {
@@ -191,20 +191,33 @@
         "color": "#{{orange-hex}}"
       },
       "operator": {
-        "color": "#{{base05-hex}}"
+        "color": "#{{purple-hex}}"
       },
-      "*.declaration": {
+      "function.declaration": {
+        "color": "#{{purple-hex}}",
         "font_weight": 700
       },
-      "variable.declaration": {
-        "color": "#{{purple-hex}}",
-        "font_weight": 400
-      },
-      "enumMember.declaration": {
+      "enum.declaration": {
         "color": "#{{green-hex}}",
-        "font_weight": 400
+        "font_weight": 700
       },
-      "*.async": {
+      "class.declaration": {
+        "color": "#{{blue-hex}}",
+        "font_weight": 700
+      },
+      "method.declaration": {
+        "color": "#{{blue-hex}}",
+        "font_weight": 700
+      },
+      "trait.declaration": {
+        "color": "#{{orange-hex}}",
+        "font_weight": 700
+      },
+      "struct.declaration": {
+        "color": "#{{blue-hex}}",
+        "font_weight": 700
+      },
+      "function.async": {
         "color": "#{{orange-hex}}"
       },
       "unresolvedReference": {
