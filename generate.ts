@@ -108,13 +108,13 @@ export const colorsToTheme = (
     theme,
     backgrounds: backgrounds,
     baseShade,
-    brightShade
+    brightShade,
   };
 };
 
 export type Shade = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
-type ColorShades = Record<Shade, CssColor>;
-type ColorObject = Record<
+export type ColorShades = Record<Shade, CssColor>;
+export type ColorObject = Record<
   | keyof CustomColors<Chroma.Color>
   | keyof KeyColors<Chroma.Color>,
   ColorShades

@@ -821,7 +821,7 @@
         "invalid.deprecated"
       ],
       "settings": {
-        "foreground": "#141423"
+        "foreground": "#"
       }
     },
     {

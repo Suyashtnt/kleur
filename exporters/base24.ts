@@ -1,5 +1,5 @@
 import { Base24, Theme } from "../palettes.ts";
-import { toHex } from "./hex.ts";
+import { convertTheme, themeToColors } from "./outputConversion.ts";
 
 /**
  * Convert a theme to a base24 theme
@@ -23,7 +23,7 @@ export const toBase24 = (
     green,
     orange,
     teal,
-  } = toHex(theme);
+  } = themeToColors(convertTheme(theme, "HEX"), (color) => color.hex());
 
   return {
     scheme: `Kleur ${name}`,

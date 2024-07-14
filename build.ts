@@ -2,9 +2,9 @@ import { parseArgs } from "@std/cli/parse-args";
 import {
   dark,
   light,
+  themeToColors,
   toBase24,
   toCss,
-  toHex,
   toVscodeTheme,
   toWindowsTerminalTheme,
 } from "./mod.ts";
@@ -32,9 +32,6 @@ if (!vscePath) {
  */
 const buildSingleThemes = async (theme: Theme, type: string) => {
   console.log(`Building ${type} themes`);
-  const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
-  const name = `Kleur ${capitalizedType}`;
-
   const [_, ...colorList] = theme.theme.contrastColors;
   const backgrounds = objectEntries(theme.backgrounds)
     .map(([name, color]) => [name, color.lch()] as const)
@@ -50,7 +47,7 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
   const lchJson = JSON.stringify(lch, null, 2);
   await Deno.writeTextFile(`build/${type}/kleur-lch.json`, lchJson);
 
-  const hex = toHex(theme);
+  const hex = themeToColors(theme, (color) => color.hex());
   const hexJson = JSON.stringify(hex, null, 2);
   await Deno.writeTextFile(`build/${type}/kleur-hex.json`, hexJson);
 
@@ -60,7 +57,7 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
   await Deno.writeTextFile(`build/${type}/kleur.yaml`, base16Yaml);
   await Deno.writeTextFile(`build/${type}/kleur.json`, base16Json);
 
-  const windowsTerminal = await toWindowsTerminalTheme(theme, name);
+  const windowsTerminal = await toWindowsTerminalTheme(theme);
   await Deno.writeTextFile(
     `build/${type}/windows-terminal.json`,
     windowsTerminal,
@@ -96,7 +93,7 @@ const buildVscode = async () => {
 // TODO: zed
 
 await Promise.all([
-  buildSingleThemes(dark, "dark"),
-  buildSingleThemes(light, "light"),
+  buildSingleThemes(dark, "Dark"),
+  buildSingleThemes(light, "Light"),
   buildVscode(),
 ]);
