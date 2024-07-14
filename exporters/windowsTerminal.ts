@@ -1,10 +1,10 @@
 import { render } from "mustache";
-import { toBase16 } from "./base16.ts";
+import { toBase24 } from "./base16.ts";
 import { fromObjectEntries, objectEntries } from "../lib.ts";
 import { Theme } from "../palettes.ts";
 
 export const toWindowsTerminalTheme = async (theme: Theme, name: string) => {
-  const hex = toBase16(theme);
+  const hex = toBase24(theme);
   const template = await Deno.readTextFile(
     "templates/windowsTerminal.mustache",
   );

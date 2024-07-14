@@ -4,8 +4,6 @@ import {
 } from "@adobe/leonardo-contrast-colors";
 import { colorListToObj } from "../generate.ts";
 import { BackgroundColors, Theme } from "../palettes.ts";
-// @deno-types="npm:@types/chroma-js"
-import chroma, { hex } from "chroma";
 
 export const toHexTheme = (theme: LeonardoTheme) =>
   new LeonardoTheme({

@@ -2,7 +2,7 @@ import { parseArgs } from "@std/cli/parse-args";
 import {
   dark,
   light,
-  toBase16,
+  toBase24,
   toCss,
   toHex,
   toVscodeTheme,
@@ -54,7 +54,7 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
   const hexJson = JSON.stringify(hex, null, 2);
   await Deno.writeTextFile(`build/${type}/kleur-hex.json`, hexJson);
 
-  const base16 = toBase16(theme);
+  const base16 = toBase24(theme);
   const base16Json = JSON.stringify(base16, null, 2);
   const base16Yaml = YAML.stringify(base16);
   await Deno.writeTextFile(`build/${type}/kleur.yaml`, base16Yaml);
@@ -76,8 +76,8 @@ const buildVscode = async () => {
   // Build Vscode
   console.log("Building vscode themes");
 
-  const darkCode = await toVscodeTheme(dark, "Kleur Dark");
-  const lightCode = await toVscodeTheme(light, "Kleur Light");
+  const darkCode = await toVscodeTheme(dark);
+  const lightCode = await toVscodeTheme(light);
   await Deno.writeTextFile(`build/vscode/dark.json`, darkCode);
   await Deno.writeTextFile(`build/vscode/light.json`, lightCode);
 

@@ -65,6 +65,11 @@ export const convertPaletteToColors = (
 
 export const colorsToTheme = (
   {
+    name,
+    baseShade,
+    brightShade,
+  }: { name: string; baseShade: Shade; brightShade: Shade },
+  {
     colors,
     backgroundColor,
   }: { colors: Color[]; backgroundColor: BackgroundColor },
@@ -99,12 +104,15 @@ export const colorsToTheme = (
   const backgrounds = generateBackground(background);
 
   return {
+    name,
     theme,
     backgrounds: backgrounds,
+    baseShade,
+    brightShade
   };
 };
 
-type Shade = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
+export type Shade = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
 type ColorShades = Record<Shade, CssColor>;
 type ColorObject = Record<
   | keyof CustomColors<Chroma.Color>

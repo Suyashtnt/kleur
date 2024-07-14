@@ -4,7 +4,9 @@
     "specifiers": {
       "jsr:@std/cli@^0.224.7": "jsr:@std/cli@0.224.7",
       "npm:@adobe/leonardo-contrast-colors": "npm:@adobe/leonardo-contrast-colors@1.0.0",
+      "npm:@types/chroma-js": "npm:@types/chroma-js@2.4.4",
       "npm:@types/chroma-js@2": "npm:@types/chroma-js@2.4.4",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:chroma-js@2": "npm:chroma-js@2.4.2"
     },
     "jsr": {
@@ -25,6 +27,10 @@
       },
       "@types/chroma-js@2.4.4": {
         "integrity": "sha512-/DTccpHTaKomqussrn+ciEvfW4k6NAHzNzs/sts1TCqg333qNxOhy8TNIoQCmbGG3Tl8KdEhkGAssb1n3mTXiQ==",
+        "dependencies": {}
+      },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
         "dependencies": {}
       },
       "apca-w3@0.1.9": {
