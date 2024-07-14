@@ -1308,8 +1308,8 @@
     "enumMember": "#007833",
     "decorator": "#006f9a",
     "event": "#006f9a",
-    "punct": "#c42b28",
-    "punctuation": "#c42b28",
+    "punct": "#675ea6",
+    "punctuation": "#675ea6",
     "escapeSequence": "#c42b28",
     "function": {
       "foreground": "#006f9a",

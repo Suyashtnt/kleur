@@ -1,4 +1,3 @@
-import { render } from "mustache";
 import { Theme } from "../palettes.ts";
 import { toMustache } from "./mustache.ts";
 
