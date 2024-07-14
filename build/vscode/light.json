@@ -1536,8 +1536,45 @@
   ],
   "semanticHighlighting": true,
   "semanticTokenColors": {
-    "function.declaration": "#005c82",
+    "namespace": "#006429",
+    "class": "#005c82",
+    "class.abstract": "#7a4c00",
+    "method": "#564e8c",
+    "enum": "#006429",
+    "interface": "#7a4c00",
+    "struct": "#005c82",
+    "typeParameter": "#006429",
+    "type": "#005c82",
+    "parameter": "#564e8c",
+    "variable": "#564e8c",
+    "property": "#564e8c",
+    "enumMember": "#006429",
+    "decorator": "#005c82",
+    "event": "#005c82",
     "function": "#564e8c",
-    "method": "#564e8c"
-  },
+    "method": "#564e8c",
+    "macro": "#005c82",
+    "label": "#3f3f49",
+    "comment": "#6d6d7c",
+    "string": "#006429",
+    "keyword": "#005c82",
+    "number": "#7a4c00",
+    "regexp": "#7a4c00",
+    "operator": "#555561",
+    "*.declaration": {
+      "italic": true
+    },
+    "variable.declaration": {
+      "italic": false
+    },
+    "*.async": "#7a4c00",
+    "unresolvedReference": "#a81c1c",
+    "namespace.defaultLibrary": "#006429",
+    "variable.defaultLibrary": "#006429",
+    "namespace.builtin": "#006429",
+    "variable.builtin": "#006429",
+    "*.emph": {
+      "italic": true
+    }
+  }
 }
