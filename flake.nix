@@ -7,7 +7,12 @@
     base16.url = "github:SenchoPens/base16.nix";
   };
 
-  outputs = { self, nixpkgs, base16, flake-utils }:
+  outputs = {
+    self,
+    nixpkgs,
+    base16,
+    flake-utils,
+  }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
 
@@ -20,17 +25,19 @@
       light-theme = base16-lib.mkSchemeAttrs light-theme-base16;
     in {
       devShells.default = pkgs.mkShell {
-        packages = [ pkgs.deno pkgs.nil pkgs.alejandra pkgs.vsce pkgs.nodejs ];
+        packages = [pkgs.deno pkgs.nil pkgs.alejandra pkgs.vsce pkgs.nodejs];
       };
 
       themes = {
         dark = {
           base16-nix = dark-theme;
           base16 = dark-theme-base16;
+          build = ./build/Dark;
         };
         light = {
           base16-nix = light-theme;
           base16 = light-theme-base16;
+          build = ./build/Light;
         };
       };
     });
