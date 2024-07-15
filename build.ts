@@ -11,6 +11,7 @@ import { toWindowsTerminalTheme } from "./exporters/windowsTerminal.ts";
 import { toCss } from "./exporters/css.ts";
 import { toVscodeTheme } from "./exporters/vscode.ts";
 import { toHelixTheme } from "./exporters/helix.ts";
+import { toGtkTheme } from "./exporters/gtk.ts";
 
 const { "vsce-path": vscePath } = parseArgs(
   Deno.args,
@@ -64,6 +65,9 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
 
   const helix = await toHelixTheme(theme);
   await Deno.writeTextFile(`build/${type}/helix.toml`, helix);
+
+  const gtk = await toGtkTheme(theme);
+  await Deno.writeTextFile(`build/${type}/gtk.css`, gtk);
 
   const css = toCss(theme);
   await Deno.writeTextFile(`build/${type}/kleur.css`, css);

@@ -20,8 +20,8 @@ export const dark = colorsToTheme(
   },
   (background) => ({
     background,
-    surface: background.set("oklch.l", 0.15),
-    overlay: background.set("oklch.l", 0.2),
+    surface: background.set("oklch.l", 0.16),
+    overlay: background.set("oklch.l", 0.23),
   }),
 );
 
@@ -33,19 +33,19 @@ const lightColors = convertPaletteToColors(palettes.light, {
 export const light = colorsToTheme(
   {
     name: "Light",
-    baseShade: 300,
-    brightShade: 400,
+    baseShade: 400,
+    brightShade: 500,
     polarity: "light",
   },
   lightColors,
   {
     lightness: 95,
-    contrast: 2,
+    contrast: 1.4,
     saturation: 100,
   },
   (background) => ({
     background,
-    surface: background.darken(0.05),
-    overlay: background.darken(0.1),
+    surface: background.darken(0.08),
+    overlay: background.darken(0.16),
   }),
 );

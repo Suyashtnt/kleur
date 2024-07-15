@@ -29,7 +29,7 @@ export const convertPaletteToColors = (
       name,
       // @ts-expect-error this works in chroma-js
       colorKeys: [color.hex()],
-      ratios: [1.45, 2.06, 2.95, 4.27, 6.05, 8.37, 11.34, 14.89],
+      ratios: [1.2, 2.26, 3.24, 4.57, 6.55, 8.87, 11.84, 15.29],
       colorspace: "OKLCH",
       smooth: true,
       output: "OKLCH",
@@ -41,7 +41,7 @@ export const convertPaletteToColors = (
       name,
       // @ts-expect-error this works in chroma-js
       colorKeys: [color.hex()],
-      ratios: [1.45, 2.06, 2.95, 4.27, 6.05, 8.37, 11.34, 14.89],
+      ratios: [1.2, 2.06, 2.95, 4.27, 6.05, 8.37, 11.34, 14.89],
       colorspace: "OKLCH",
       smooth: true,
       output: "OKLCH",

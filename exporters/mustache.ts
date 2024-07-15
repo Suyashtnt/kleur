@@ -5,6 +5,8 @@ import { objectEntries } from "../lib.ts";
 import { BackgroundColors, Theme } from "../palettes.ts";
 import { toBase24 } from "./base24.ts";
 import { convertTheme, themeToColors } from "./outputConversion.ts";
+// @ts-types="npm:@types/chroma-js@2"
+import chroma from "chroma";
 
 export const toMustache = (
   theme: Theme,
@@ -15,15 +17,25 @@ export const toMustache = (
     convertTheme(theme, "HEX"),
     (color) => color.hex(),
   );
+  const { scheme: _, ...base24 } = toBase24(theme);
   const hexObject = {
     ...toMustacheList(theme, hexTheme),
-    ...toBase24(theme),
+    ...base24,
   };
   const hex: Record<string, string> = fromObjectEntries(
     objectEntries(hexObject).map((
       [key, value],
     ) => [`${key}-hex`, value.startsWith("#") ? value.slice(1) : value]),
   );
+
+  const hexDecimal: Record<string, string> = objectEntries(hexObject)
+    .reduce((acc, [key, color]) => {
+      const [r, g, b] = chroma(color).rgb();
+      acc[`${key}-dec-r`] = r.toString();
+      acc[`${key}-dec-g`] = g.toString();
+      acc[`${key}-dec-b`] = b.toString();
+      return acc;
+    }, {} as Record<string, string>);
 
   // preferred over hex if available, as it's more accurate
   const lchTheme = themeToColors(convertTheme(theme, "LCH"), (color) => {
@@ -42,6 +54,7 @@ export const toMustache = (
     "scheme-author": "Kleur Contributors",
     polarity: theme.polarity,
     ...hex,
+    ...hexDecimal,
     ...lch,
     ...extra,
   };
