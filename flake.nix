@@ -39,6 +39,8 @@
           base16 = light-theme-base16;
           build = ./build/Light;
         };
+        zed = ./build/zed.json;
+        vscode = ./build/vscode/kleur-code-0.3.0.vsix;
       };
     });
 }
