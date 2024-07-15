@@ -39,6 +39,7 @@ export const toMustache = (
 
   const mustaceTheme = {
     "scheme-name": `Kleur ${theme.name}`,
+    "scheme-author": "Kleur Contributors",
     polarity: theme.polarity,
     ...hex,
     ...lch,

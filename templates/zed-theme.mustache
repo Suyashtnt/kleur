@@ -1,6 +1,6 @@
 {
   "name": "{{scheme-name}}",
-  "appearance": "{{polarity}}",
+  "appearance": "{{scheme-author}}",
   "style": {
     "background.appearance": "opaque",
     "accents": [],
@@ -102,6 +102,9 @@
       "variable": {
         "color": "#{{purple-hex}}"
       },
+      "variable.builtin": {
+        "color": "#{{green-hex}}"
+      },
       "property": {
         "color": "#{{purple-hex}}"
       },
@@ -130,26 +133,6 @@
         "color": "#{{blue-hex}}",
         "font_style": "italic"
       },
-      "function.declaration": {
-        "color": "#{{purple-hex}}",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "function.declaration.async": {
-        "color": "#{{orange-hex}}",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration": {
-        "color": "#{{blue-hex}}",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration.async": {
-        "color": "#{{orange-hex}}",
-        "font_style": "normal",
-        "font_weight": 700
-      },
       "method": {
         "color": "#{{blue-hex}}",
         "font_style": "italic"
@@ -169,8 +152,9 @@
         "color": "#{{purple-hex}}",
         "font_style": "italic"
       },
-      "selfKeyword": {
-        "color": "#{{purple-hex}}"
+      "keyword.control": {
+        "color": "#{{purple-hex}}",
+        "font_style": "italic"
       },
       "number": {
         "color": "#{{orange-hex}}"

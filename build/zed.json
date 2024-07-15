@@ -5,7 +5,7 @@
   "themes": [
     {
   "name": "Kleur Dark",
-  "appearance": "dark",
+  "appearance": "Kleur Contributors",
   "style": {
     "background.appearance": "opaque",
     "accents": [],
@@ -107,6 +107,9 @@
       "variable": {
         "color": "#8c81dc"
       },
+      "variable.builtin": {
+        "color": "#00a24b"
+      },
       "property": {
         "color": "#8c81dc"
       },
@@ -135,26 +138,6 @@
         "color": "#0097ce",
         "font_style": "italic"
       },
-      "function.declaration": {
-        "color": "#8c81dc",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "function.declaration.async": {
-        "color": "#c27e00",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration": {
-        "color": "#0097ce",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration.async": {
-        "color": "#c27e00",
-        "font_style": "normal",
-        "font_weight": 700
-      },
       "method": {
         "color": "#0097ce",
         "font_style": "italic"
@@ -174,8 +157,9 @@
         "color": "#8c81dc",
         "font_style": "italic"
       },
-      "selfKeyword": {
-        "color": "#8c81dc"
+      "keyword.control": {
+        "color": "#8c81dc",
+        "font_style": "italic"
       },
       "number": {
         "color": "#c27e00"
@@ -255,7 +239,7 @@
 ,
 {
   "name": "Kleur Light",
-  "appearance": "light",
+  "appearance": "Kleur Contributors",
   "style": {
     "background.appearance": "opaque",
     "accents": [],
@@ -357,6 +341,9 @@
       "variable": {
         "color": "#675ea6"
       },
+      "variable.builtin": {
+        "color": "#007833"
+      },
       "property": {
         "color": "#675ea6"
       },
@@ -385,26 +372,6 @@
         "color": "#006f9a",
         "font_style": "italic"
       },
-      "function.declaration": {
-        "color": "#675ea6",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "function.declaration.async": {
-        "color": "#915c00",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration": {
-        "color": "#006f9a",
-        "font_style": "normal",
-        "font_weight": 700
-      },
-      "method.declaration.async": {
-        "color": "#915c00",
-        "font_style": "normal",
-        "font_weight": 700
-      },
       "method": {
         "color": "#006f9a",
         "font_style": "italic"
@@ -424,8 +391,9 @@
         "color": "#675ea6",
         "font_style": "italic"
       },
-      "selfKeyword": {
-        "color": "#675ea6"
+      "keyword.control": {
+        "color": "#675ea6",
+        "font_style": "italic"
       },
       "number": {
         "color": "#915c00"

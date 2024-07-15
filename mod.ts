@@ -49,5 +49,3 @@ export const light = colorsToTheme(
     overlay: background.darken(0.1),
   }),
 );
-
-export * from "./exporters/mod.ts";

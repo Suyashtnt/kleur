@@ -948,7 +948,7 @@
         "constant.character.escape"
       ],
       "settings": {
-        "foreground": "#c27e00"
+        "foreground": "#f5564d"
       }
     },
     {
@@ -1372,9 +1372,7 @@
     },
     "*.async": "#c27e00",
     "unresolvedReference": "#f5564d",
-    "namespace.defaultLibrary": "#00a24b",
     "variable.defaultLibrary": "#00a24b",
-    "namespace.builtin": "#00a24b",
     "variable.builtin": "#00a24b",
     "*.emph": {
       "italic": true

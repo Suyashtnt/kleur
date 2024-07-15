@@ -1,18 +1,16 @@
 import { parseArgs } from "@std/cli/parse-args";
-import {
-  dark,
-  light,
-  themeToColors,
-  toBase24,
-  toCss,
-  toVscodeTheme,
-  toWindowsTerminalTheme,
-} from "./mod.ts";
+import { dark, light } from "./mod.ts";
 import * as YAML from "yaml";
 import { colorListToObj } from "./generate.ts";
 import { Theme } from "./palettes.ts";
 import { objectEntries } from "./lib.ts";
 import { toZedThemes } from "./exporters/zed.ts";
+import { themeToColors } from "./exporters/outputConversion.ts";
+import { toBase24 } from "./exporters/base24.ts";
+import { toWindowsTerminalTheme } from "./exporters/windowsTerminal.ts";
+import { toCss } from "./exporters/css.ts";
+import { toVscodeTheme } from "./exporters/vscode.ts";
+import { toHelixTheme } from "./exporters/helix.ts";
 
 const { "vsce-path": vscePath } = parseArgs(
   Deno.args,
@@ -63,6 +61,9 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
     `build/${type}/windows-terminal.json`,
     windowsTerminal,
   );
+
+  const helix = await toHelixTheme(theme);
+  await Deno.writeTextFile(`build/${type}/helix.toml`, helix);
 
   const css = toCss(theme);
   await Deno.writeTextFile(`build/${type}/kleur.css`, css);
