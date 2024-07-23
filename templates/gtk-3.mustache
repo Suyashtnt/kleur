@@ -1,117 +1,60 @@
-:root {
-  --accent-blue: #{{blue-hex}};
-  --accent-teal: #{{teal-hex}};
-  --accent-green: #{{green-hex}};
-  --accent-yellow: #{{orange-hex}};
-  --accent-orange: #{{orange-hex}};
-  --accent-red: #{{red-hex}};
-  --accent-pink: #{{purple-hex}};
-  --accent-purple: #{{purple-hex}};
-  --accent-slate: #{{overlay-hex}};
-
-  --accent-color: #{{primary-hex}};
-  --accent-bg-color: #{{primary-hex}};
-  --accent-fg-color: #{{primary-100-hex}};
-
-  --destructive-color: #{{red-hex}};
-  --destructive-bg-color: #{{red-hex}};
-  --destructive-fg-color: #{{red-100-hex}};
-
-  --success-color: #{{green-hex}};
-  --success-bg-color: #{{green-hex}};
-  --success-fg-color: #{{green-100-hex}};
-
-  --warning-color: #{{orange-hex}};
-  --warning-bg-color: #{{orange-hex}};
-  --warning-fg-color: #{{orange-100-hex}};
-
-  --error-color: #{{red-hex}};
-  --error-bg-color: #{{red-hex}};
-  --error-fg-color: #{{red-100-hex}};
-
-  --window-bg-color: #{{background-hex}};
-  --window-fg-color: #{{base07-hex}};
-
-  --view-bg-color: #{{background-hex}};
-  --view-fg-color: #{{base-800-hex}};
-
-  --headerbar-bg-color: #{{surface-hex}};
-  --headerbar-fg-color: #{{base07-hex}};
-  --headerbar-border-color: #{{surface-hex}};
-  --headerbar-backdrop-color: #{{background-hex}};
-  --headerbar-shade-color: var(--shade-color);
-  --headerbar-darker-shade-color: var(--shade-color);
-
-  --sidebar-bg-color: #{{surface-hex}};
-  --sidebar-fg-color: #{{base07-hex}};
-  --sidebar-backdrop-color: #{{background-hex}};
-  --sidebar-border-color: #{{surface-hex}};
-  /* --sidebar-shade-color: var(--shade-color); see https://gitlab.gnome.org/GNOME/libadwaita/-/issues/910 */
-
-  --secondary-sidebar-bg-color: var(--sidebar-bg-color);
-  --secondary-sidebar-fg-color: var(--sidebar-fg-color);
-  --secondary-sidebar-backdrop-color: var(--sidebar-backdrop-color);
-  --secondary-sidebar-border-color: var(--sidebar-border-color);
-  --secondary-sidebar-shade-color: var(--sidebar-shade-color);
-
-  --card-bg-color: #{{surface-hex}};
-  --card-fg-color: #{{base07-hex}};
-  --card-shade-color: var(--shade-color);
-
-  --dialog-bg-color: #{{overlay-hex}};
-  --dialog-fg-color: #{{base07-hex}};
-
-  --popover-bg-color: #{{surface-hex}};
-  --popover-fg-color: #{{base07-hex}};
-  --popover-shade-color: var(--shade-color);
-
-  --shade-color: rgba(0, 0, 0, 0.07);
-  --scrollbar-outline-color: #{{overlay-hex}};
-}
-
 @define-color accent_color #{{primary-hex}};
-@define-color accent_bg_color #{{primary-100-hex}};
-@define-color accent_fg_color #{{primary-hex}};
+@define-color accent_bg_color #{{primary-hex}};
+@define-color accent_fg_color #{{primary-100-hex}};
+
 @define-color destructive_color #{{red-hex}};
-@define-color destructive_bg_color #{{red-100-hex}};
-@define-color destructive_fg_color #{{red-hex}};
+@define-color destructive_bg_color #{{red-hex}};
+@define-color destructive_fg_color #{{red-100-hex}};
+
 @define-color success_color #{{green-hex}};
-@define-color success_bg_color #{{green-100-hex}};
-@define-color success_fg_color #{{green-hex}};
+@define-color success_bg_color #{{green-hex}};
+@define-color success_fg_color #{{green-100-hex}};
+
 @define-color warning_color #{{orange-hex}};
-@define-color warning_bg_color #{{orange-100-hex}};
-@define-color warning_fg_color #{{orange-hex}};
+@define-color warning_bg_color #{{orange-hex}};
+@define-color warning_fg_color #{{orange-100-hex}};
+
 @define-color error_color #{{red-hex}};
-@define-color error_bg_color #{{red-100-hex}};
-@define-color error_fg_color #{{red-hex}};
+@define-color error_bg_color #{{red-hex}};
+@define-color error_fg_color #{{red-100-hex}};
+
 @define-color window_bg_color #{{background-hex}};
 @define-color window_fg_color #{{base07-hex}};
+
 @define-color view_bg_color #{{background-hex}};
 @define-color view_fg_color #{{base-800-hex}};
+
 @define-color headerbar_bg_color #{{surface-hex}};
 @define-color headerbar_fg_color #{{base07-hex}};
 @define-color headerbar_border_color rgba({{surface-dec-r}}, {{surface-dec-g}}, {{surface-dec-b}}, 0.7);
 @define-color headerbar_backdrop_color @window_bg_color;
 @define-color headerbar_shade_color rgba(0, 0, 0, 0.07);
 @define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.07);
+
 @define-color sidebar_bg_color #{{surface-hex}};
 @define-color sidebar_fg_color #{{base07-hex}};
 @define-color sidebar_backdrop_color @window_bg_color;
 @define-color sidebar_shade_color rgba(0, 0, 0, 0.07);
+
 @define-color secondary_sidebar_bg_color @sidebar_bg_color;
 @define-color secondary_sidebar_fg_color @sidebar_fg_color;
 @define-color secondary_sidebar_backdrop_color @sidebar_backdrop_color;
 @define-color secondary_sidebar_shade_color @sidebar_shade_color;
+
 @define-color card_bg_color #{{surface-hex}};
 @define-color card_fg_color #{{base07-hex}};
 @define-color card_shade_color rgba(0, 0, 0, 0.07);
+
 @define-color dialog_bg_color #{{surface-hex}};
 @define-color dialog_fg_color #{{base07-hex}};
+
 @define-color popover_bg_color #{{surface-hex}};
 @define-color popover_fg_color #{{base07-hex}};
 @define-color popover_shade_color rgba(0, 0, 0, 0.07);
+
 @define-color shade_color rgba(0, 0, 0, 0.07);
 @define-color scrollbar_outline_color #{{overlay-hex}};
+
 @define-color blue_1 #{{blue-200-hex}};
 @define-color blue_2 #{{blue-300-hex}};
 @define-color blue_3 #{{blue-400-hex}};
