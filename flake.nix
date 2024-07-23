@@ -32,12 +32,12 @@
         dark = {
           base16-nix = dark-theme;
           base16 = dark-theme-base16;
-          build = ./build/Dark;
+          build = ./build/dark;
         };
         light = {
           base16-nix = light-theme;
           base16 = light-theme-base16;
-          build = ./build/Light;
+          build = ./build/light;
         };
         zed = ./build/zed.json;
         vscode = ./build/vscode/kleur-code-0.3.0.vsix;

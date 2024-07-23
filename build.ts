@@ -31,6 +31,7 @@ if (!vscePath) {
  * @param name The name of the theme
  */
 const buildSingleThemes = async (theme: Theme, type: string) => {
+  const pathType = type.toLowerCase();
   console.log(`Building ${type} themes`);
   const [_, ...colorList] = theme.theme.contrastColors;
   const backgrounds = objectEntries(theme.backgrounds)
@@ -45,32 +46,32 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
     ...colorListToObj(colorList),
   };
   const lchJson = JSON.stringify(lch, null, 2);
-  await Deno.writeTextFile(`build/${type}/kleur-lch.json`, lchJson);
+  await Deno.writeTextFile(`build/${pathType}/kleur-lch.json`, lchJson);
 
   const hex = themeToColors(theme, (color) => color.hex());
   const hexJson = JSON.stringify(hex, null, 2);
-  await Deno.writeTextFile(`build/${type}/kleur-hex.json`, hexJson);
+  await Deno.writeTextFile(`build/${pathType}/kleur-hex.json`, hexJson);
 
   const base16 = toBase24(theme);
   const base16Json = JSON.stringify(base16, null, 2);
   const base16Yaml = YAML.stringify(base16);
-  await Deno.writeTextFile(`build/${type}/kleur.yaml`, base16Yaml);
-  await Deno.writeTextFile(`build/${type}/kleur.json`, base16Json);
+  await Deno.writeTextFile(`build/${pathType}/kleur.yaml`, base16Yaml);
+  await Deno.writeTextFile(`build/${pathType}}/kleur.json`, base16Json);
 
   const windowsTerminal = await toWindowsTerminalTheme(theme);
   await Deno.writeTextFile(
-    `build/${type}/windows-terminal.json`,
+    `build/${pathType}}/windows-terminal.json`,
     windowsTerminal,
   );
 
   const helix = await toHelixTheme(theme);
-  await Deno.writeTextFile(`build/${type}/helix.toml`, helix);
+  await Deno.writeTextFile(`build/${pathType}/helix.toml`, helix);
 
   const gtk = await toGtkTheme(theme);
-  await Deno.writeTextFile(`build/${type}/gtk.css`, gtk);
+  await Deno.writeTextFile(`build/${pathType}/gtk.css`, gtk);
 
   const css = toCss(theme);
-  await Deno.writeTextFile(`build/${type}/kleur.css`, css);
+  await Deno.writeTextFile(`build/${pathType}/kleur.css`, css);
 
   console.log(`Built ${type} themes`);
 };
