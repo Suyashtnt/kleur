@@ -53,14 +53,16 @@ const buildSingleThemes = async (theme: Theme, type: string) => {
   await Deno.writeTextFile(`build/${pathType}/kleur-hex.json`, hexJson);
 
   const base16 = toBase24(theme);
+  // @ts-ignore not an issue
+  base16.name = base16.scheme;
   const base16Json = JSON.stringify(base16, null, 2);
   const base16Yaml = YAML.stringify(base16);
   await Deno.writeTextFile(`build/${pathType}/kleur.yaml`, base16Yaml);
-  await Deno.writeTextFile(`build/${pathType}}/kleur.json`, base16Json);
+  await Deno.writeTextFile(`build/${pathType}/kleur.json`, base16Json);
 
   const windowsTerminal = await toWindowsTerminalTheme(theme);
   await Deno.writeTextFile(
-    `build/${pathType}}/windows-terminal.json`,
+    `build/${pathType}/windows-terminal.json`,
     windowsTerminal,
   );
 
