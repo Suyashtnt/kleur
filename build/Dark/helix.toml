@@ -79,14 +79,14 @@
 "ui.window" = { bg = "surface" }
 
 [palette]
-base00 = "#060613" # Default Background
-base01 = "#0b0c19" # Lighter Background (Used for status bars, line number and folding marks)
-base02 = "#1b1b2a" # Selection Background
-base03 = "#5f606d" # Comments, Invisibles, Line Highlighting
-base04 = "#767882" # Dark Foreground (Used for status bars)
-base05 = "#92929b" # Default Foreground, Caret, Delimiters, Operators
-base06 = "#ababb3" # Light Foreground (Not often used)
-base07 = "#c6c6cb" # Light Background (Not often used)
+base00 = "#070710" # Default Background
+base01 = "#0c0c16" # Lighter Background (Used for status bars, line number and folding marks)
+base02 = "#15151f" # Selection Background
+base03 = "#606069" # Comments, Invisibles, Line Highlighting
+base04 = "#77777f" # Dark Foreground (Used for status bars)
+base05 = "#929299" # Default Foreground, Caret, Delimiters, Operators
+base06 = "#ababb1" # Light Foreground (Not often used)
+base07 = "#c6c6ca" # Light Background (Not often used)
 base08 = "#fa5f54" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 base09 = "#ca8400" # Integers, Boolean, Constants, XML Attributes, Markup Link Url
 base0A = "#ca8400" # Classes, Markup Bold, Search Text Background
@@ -95,9 +95,9 @@ base0C = "#00a49c" # Support, Regular Expressions, Escape Characters, Markup Quo
 base0D = "#009dd7" # Functions, Methods, Attribute IDs, Headings
 base0E = "#9287e4" # Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F = "#ca8400" # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
-background = "#060613"
-surface = "#0b0c19"
-overlay = "#1b1b2a"
+background = "#070710"
+surface = "#0c0c16"
+overlay = "#15151f"
 red = "#fa5f54"
 orange = "#ca8400"
 green = "#00a94f"

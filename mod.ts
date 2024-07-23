@@ -21,7 +21,7 @@ export const dark = colorsToTheme(
   (background) => ({
     background,
     surface: background.set("oklch.l", 0.16),
-    overlay: background.set("oklch.l", 0.23),
+    overlay: background.set("oklch.l", 0.20),
   }),
 );
 
