@@ -1,0 +1,23 @@
+{
+  "name": "Kleur Dark",
+  "foreground": "#929299",
+  "background": "#070710",
+  "cursorColor": "#929299",
+  "selectionBackground": "#15151f",
+  "black": "#070710",
+  "red": "#fa5f54",
+  "green": "#00a94f",
+  "yellow": "#ca8400",
+  "blue": "#009dd7",
+  "purple": "#9287e4",
+  "cyan": "#00a49c",
+  "white": "#929299",
+  "brightBlack": "#606069",
+  "brightRed": "#ffb3a8",
+  "brightGreen": "#34e27c",
+  "brightYellow": "#ffb940",
+  "brightBlue": "#48d5ff",
+  "brightPurple": "#c7bfff",
+  "brightCyan": "#14ddd3",
+  "brightWhite": "#c6c6ca"
+}

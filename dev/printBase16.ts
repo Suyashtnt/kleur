@@ -1,5 +1,5 @@
-import { dark } from "../palletes.ts";
-import { toBase16 } from "../exporters/base16.ts";
+import { dark } from "../mod.ts";
+import { toBase24 } from "../exporters/base24.ts";
 
-const theme = toBase16(dark);
+const theme = toBase24(dark);
 console.log(JSON.stringify(theme, null, 2));

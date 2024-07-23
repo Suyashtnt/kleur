@@ -1,16 +1,15 @@
-import { render } from 'mustache'
-import { HumanPalette } from "../palletes.ts";
-import { toHex } from "./hex.ts";
+import { Theme } from "../palettes.ts";
+import { toMustache } from "./mustache.ts";
 
-export const toVscodeTheme = async (pallete: HumanPalette) => {
-    const hex = toHex(pallete)
-    const template = await Deno.readTextFile('templates/zed.mustache')
-    const theme = Object.fromEntries(
-        Object.entries(hex).map(([key, value]) => [key + '-hex', value.replace?.("#", "")])
-    )
+const toZedTheme = async (theme: Theme) => {
+  const template = await Deno.readTextFile("templates/zed-theme.mustache");
+  return toMustache(theme, template);
+};
 
-    return render(template, {
-        'scheme-name': "Kleur",
-        ...theme
-    })
-}
+export const toZedThemes = async (themes: Theme[]) => {
+  const template = await Deno.readTextFile("templates/zed.mustache");
+  const themesString = await Promise.all(
+    themes.map((theme) => toZedTheme(theme)),
+  ).then((arr) => arr.join(",\n"));
+  return template.replace("{{themes}}", themesString);
+};

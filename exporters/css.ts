@@ -1,48 +1,34 @@
-// @deno-types="npm:@types/culori"
-import { formatCss } from "culori/fn";
-import { HumanPalette } from "../palletes.ts";
+import { Theme as LeonardoTheme } from "@adobe/leonardo-contrast-colors";
+import { objectEntries } from "../lib.ts";
+import { Theme } from "../palettes.ts";
 
-export const toCss = (pallete: HumanPalette): HumanPalette<string> => ({
-  base: {
-    background: formatCss(pallete.base.background),
-    foreground: formatCss(pallete.base.foreground),
-  },
-  base00: formatCss(pallete.base00),
-  base01: formatCss(pallete.base01),
-  base02: formatCss(pallete.base02),
-  base03: formatCss(pallete.base03),
-  base04: formatCss(pallete.base04),
-  base05: formatCss(pallete.base05),
-  base06: formatCss(pallete.base06),
-  base07: formatCss(pallete.base07),
-  base08: formatCss(pallete.base08),
-  base09: formatCss(pallete.base09),
-  base0A: formatCss(pallete.base0A),
-  base0B: formatCss(pallete.base0B),
-  base0C: formatCss(pallete.base0C),
-  base0D: formatCss(pallete.base0D),
-  base0E: formatCss(pallete.base0E),
-  base0F: formatCss(pallete.base0F),
-  overlay: {
-    background: formatCss(pallete.overlay.background),
-    foreground: formatCss(pallete.overlay.foreground),
-  },
-  primary: {
-    background: formatCss(pallete.primary.background),
-    foreground: formatCss(pallete.primary.foreground),
-  },
-  secondary: {
-    background: formatCss(pallete.secondary.background),
-    foreground: formatCss(pallete.secondary.foreground),
-  },
-  surface: {
-    background: formatCss(pallete.surface.background),
-    foreground: formatCss(pallete.surface.foreground),
-  },
-  green: formatCss(pallete.green),
-  mauve: formatCss(pallete.mauve),
-  orange: formatCss(pallete.orange),
-  red: formatCss(pallete.red),
-  subtle: formatCss(pallete.subtle),
-  teal: formatCss(pallete.teal),
-});
+/**
+ * Converts an theme to a CSS string
+ * @param theme A theme
+ * @returns A CSS string
+ */
+export const toCss = (inputTheme: Theme) => {
+  const theme = new LeonardoTheme({
+    colors: inputTheme.theme.colors,
+    backgroundColor: inputTheme.theme.backgroundColor,
+    contrast: inputTheme.theme.contrast,
+    formula: inputTheme.theme.formula,
+    lightness: inputTheme.theme.lightness,
+    saturation: inputTheme.theme.saturation,
+    output: "LCH",
+  });
+
+  const backgroundStr = objectEntries(inputTheme.backgrounds)
+    .map(([name, color]) => [name, color.lch()])
+    .map(([name, [l, c, h]]) => `--${name}: lch(${l}, ${c}, ${h});`);
+
+  const themeStr = objectEntries(theme.contrastColorPairs)
+    .map(([name, color]) => `--${name}: ${color};`)
+    .map((line) => line.replace("deg", ""))
+    .join("\n");
+
+  return `:root {
+  ${backgroundStr.join("\n")}
+  ${themeStr}
+}`;
+};

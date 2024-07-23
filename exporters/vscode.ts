@@ -1,19 +1,7 @@
-import { render } from "mustache";
-import { HumanPalette } from "../palletes.ts";
-import { toHex } from "./hex.ts";
+import { Theme } from "../palettes.ts";
+import { toMustache } from "./mustache.ts";
 
-export const toVscodeTheme = async (pallete: HumanPalette) => {
-  const hex = toHex(pallete);
+export const toVscodeTheme = async (theme: Theme) => {
   const template = await Deno.readTextFile("templates/vscode.mustache");
-  const theme = Object.fromEntries(
-    Object.entries(hex).map(([key, value]) => [
-      key + "-hex",
-      value.replace?.("#", ""),
-    ]),
-  );
-
-  return render(template, {
-    "scheme-name": "Kleur",
-    ...theme,
-  });
+  return toMustache(theme, template);
 };

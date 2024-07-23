@@ -7,27 +7,40 @@
     base16.url = "github:SenchoPens/base16.nix";
   };
 
-  outputs = { self, nixpkgs, base16, flake-utils }:
+  outputs = {
+    self,
+    nixpkgs,
+    base16,
+    flake-utils,
+  }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
 
       base16-lib = pkgs.callPackage base16.lib {};
-      dark-theme-json = builtins.fromJSON (builtins.readFile ./build/dark.json);
-      dark-theme-base16 = {
-        inherit (dark-theme-json) base00 base01 base02 base03 base04 base05 base06 base07 base08 base09 base0A base0B base0C base0D base0E base0F;
-      };
-      dark-theme = base16-lib.mkSchemeAttrs dark-theme-json;
+
+      dark-theme-base16 = builtins.fromJSON (builtins.readFile ./build/dark/kleur.json);
+      dark-theme = base16-lib.mkSchemeAttrs dark-theme-base16;
+
+      light-theme-base16 = builtins.fromJSON (builtins.readFile ./build/light/kleur.json);
+      light-theme = base16-lib.mkSchemeAttrs light-theme-base16;
     in {
       devShells.default = pkgs.mkShell {
-        packages = [ pkgs.deno pkgs.nil pkgs.alejandra pkgs.vsce pkgs.nodejs ];
+        packages = [pkgs.deno pkgs.nil pkgs.alejandra pkgs.vsce pkgs.nodejs];
       };
 
       themes = {
         dark = {
           base16-nix = dark-theme;
           base16 = dark-theme-base16;
-          json = dark-theme-json;
+          build = ./build/Dark;
         };
+        light = {
+          base16-nix = light-theme;
+          base16 = light-theme-base16;
+          build = ./build/Light;
+        };
+        zed = ./build/zed.json;
+        vscode = ./build/vscode/kleur-code-0.3.0.vsix;
       };
     });
 }

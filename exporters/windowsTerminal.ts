@@ -1,21 +1,9 @@
-import { render } from "mustache";
-import { HumanPalette } from "../palletes.ts";
-import { toHex } from "./hex.ts";
+import { Theme } from "../palettes.ts";
+import { toMustache } from "./mustache.ts";
 
-export const toWindowsTerminalTheme = async (pallete: HumanPalette) => {
-  const hex = toHex(pallete);
+export const toWindowsTerminalTheme = async (theme: Theme) => {
   const template = await Deno.readTextFile(
     "templates/windowsTerminal.mustache",
   );
-  const theme = Object.fromEntries(
-    Object.entries(hex).map(([key, value]) => [
-      key + "-hex",
-      value.replace?.("#", ""),
-    ]),
-  );
-
-  return render(template, {
-    "scheme-name": "Kleur",
-    ...theme,
-  });
+  return toMustache(theme, template);
 };

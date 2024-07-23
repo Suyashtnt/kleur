@@ -1,24 +1,51 @@
-import { HumanPalette, Palette } from "./palletes.ts";
-import { dark } from "./palletes.ts";
+import * as palettes from "./palettes.ts";
+import { colorsToTheme, convertPaletteToColors } from "./generate.ts";
 
-/**
- * Processes a palette into a more
- * usable format. Most things are
- * renamed to be more descriptive
- * and will have usage guides
- * @param pallete the palette to process
- */
-const processPalette = (pallete: Palette): HumanPalette => ({
-  ...pallete,
-  mauve: pallete.base08,
-  orange: pallete.base09,
-  red: pallete.base0A,
-  green: pallete.base0B,
-  teal: pallete.base0C,
-  subtle: pallete.base0F,
-  blue: pallete.secondary
+const darkColors = convertPaletteToColors(palettes.dark, {
+  primary: "purple",
+  secondary: "blue",
 });
+export const dark = colorsToTheme(
+  {
+    name: "Dark",
+    baseShade: 500,
+    brightShade: 700,
+    polarity: "dark",
+  },
+  darkColors,
+  {
+    lightness: 1,
+    contrast: 1,
+    saturation: 100,
+  },
+  (background) => ({
+    background,
+    surface: background.set("oklch.l", 0.16),
+    overlay: background.set("oklch.l", 0.20),
+  }),
+);
 
-export const darkTheme = processPalette(dark);
-
-export * from "./exporters/mod.ts"
+const lightColors = convertPaletteToColors(palettes.light, {
+  // I prefer blue as the primary color in light themes. Deal with it:tm:
+  primary: "blue",
+  secondary: "purple",
+});
+export const light = colorsToTheme(
+  {
+    name: "Light",
+    baseShade: 400,
+    brightShade: 500,
+    polarity: "light",
+  },
+  lightColors,
+  {
+    lightness: 95,
+    contrast: 1.4,
+    saturation: 100,
+  },
+  (background) => ({
+    background,
+    surface: background.darken(0.08),
+    overlay: background.darken(0.16),
+  }),
+);

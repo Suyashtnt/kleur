@@ -1,7 +1,7 @@
 {
   "name": "kleur-code",
   "displayName": "Kleur",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "publisher": "Suyashtnt",
   "license": "MIT",
   "repository": {
@@ -19,9 +19,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Kleur",
+        "label": "Kleur Light",
         "uiTheme": "vs",
-        "path": "./theme.json"
+        "path": "./light.json"
+      },
+      {
+        "label": "Kleur Dark",
+        "uiTheme": "vs-dark",
+        "path": "./dark.json"
       }
     ]
   }
