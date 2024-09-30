@@ -11,10 +11,13 @@
 Most ports are handled here in the `build` folder or through nix stylix if I haven't made a custom one for them.
 Here are some outside the `build` folder:
 
+- Monkeytype
+  - [Dark](https://monkeytype.com?customTheme=eyJjIjpbIiMwNjA2MTMiLCIjYWJhMGZmIiwiIzc3NmRiZSIsIiM3Nzc3N2YiLCIjMDkwODFiIiwiI2M2YzZjYSIsIiNkZDNiMzYiLCIjZmZiM2E4IiwiI2RkM2IzNiIsIiNmZmIzYTgiXSwiaSI6IiIsInMiOiJjb3ZlciIsImYiOlswLDEsMSwxXX0=)
+  - [Light](https://monkeytype.com?customTheme=eyJjIjpbIiNlZmYwZjYiLCIjMDA3YmFiIiwiIzAwMzA0NyIsIiM1OTU5NjIiLCIjZWJlY2YyIiwiIzJjMmMzMSIsIiNkNTM2MzEiLCIjODUwZjExIiwiI2Q1MzYzMSIsIiM4NTBmMTEiXSwiaSI6IiIsInMiOiJjb3ZlciIsImYiOlswLDEsMSwxXX0=)
+
 ## V2
 These still need to be ported to the new V3 theme
 - [Kleur Firefox](https://color.firefox.com/?theme=XQAAAAKKAQAAAAAAAABBKYhm849SCia9U4KEGccwS-xMDPryBvKGvrMWd_3Jjzza9aH0u2bKbrqnsIoXlXBXoJhYdQhqmWXGvz3jsNzQom8O8FeYGzDijtm-17YJr1C6q1G2oiFLoclXx86tBqJI6Z7XX-iXooac0gYK0rGJ9gJpK1evuozKivP9vJH5KSQNpSjV-JVjmpHe1t41OXsgolh14dPYq6zEGNPXgp4EV-rO-ECtw6mrqQhr4JvYNWdy5veSh_NYBO17dAhaGhMKzv1xCFHryghtE06DE__uPJhA)
-- [Kleur Monkeytype](https://monkeytype.com?customTheme=eyJjIjpbIiMwNjA2MTMiLCIjYTg5ZGZmIiwiIzM5MDc5YiIsIiM0NTQ1NWQiLCIjMDkwODFiIiwiI2Q0ZDVlYiIsIiNlNjQ0M2QiLCIjZWJhMGFjIiwiI2U2NDQzZCIsIiNlYmEwYWMiXSwiaSI6IiIsInMiOiJjb3ZlciIsImYiOlswLDEsMSwxLDFdfQ==)
 
 ## Showcase
 - [My website](https://wobbl.in)
