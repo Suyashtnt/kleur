@@ -90,7 +90,7 @@ export type Base24<T> = {
 };
 
 export const dark = {
-  base: oklch(0.13, 0.02, 284),
+  base: oklch(0.16, 0.03, 284),
   blue: oklch(0.77, 0.2, 240),
   green: oklch(0.77, 0.2, 152),
   orange: oklch(0.77, 0.2, 83),
